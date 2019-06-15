@@ -1,0 +1,35 @@
+# Meta
+set(AM_MULTI_CONFIG "FALSE")
+set(AM_PARALLEL "2")
+set(AM_VERBOSITY "")
+# Directories
+set(AM_CMAKE_SOURCE_DIR "/home/punk4tt4ck/Desktop/ICP/src")
+set(AM_CMAKE_BINARY_DIR "/build")
+set(AM_CMAKE_CURRENT_SOURCE_DIR "/home/punk4tt4ck/Desktop/ICP/src")
+set(AM_CMAKE_CURRENT_BINARY_DIR "/home/punk4tt4ck/Desktop/ICP/src")
+set(AM_CMAKE_INCLUDE_DIRECTORIES_PROJECT_BEFORE "")
+set(AM_BUILD_DIR "/home/punk4tt4ck/Desktop/ICP/src/chess_autogen")
+set(AM_INCLUDE_DIR "/home/punk4tt4ck/Desktop/ICP/src/chess_autogen/include")
+# Files
+set(AM_SOURCES "/home/punk4tt4ck/Desktop/ICP/src/API/movement/ChessGame.cpp;/home/punk4tt4ck/Desktop/ICP/src/API/movement/Figure.cpp;/home/punk4tt4ck/Desktop/ICP/src/API/movement/Square.cpp;/home/punk4tt4ck/Desktop/ICP/src/API/parsing/Parser.cpp;/home/punk4tt4ck/Desktop/ICP/src/GUI/board.cpp;/home/punk4tt4ck/Desktop/ICP/src/GUI/chess_game.cpp;/home/punk4tt4ck/Desktop/ICP/src/GUI/coordinates_graphic.cpp;/home/punk4tt4ck/Desktop/ICP/src/GUI/dialog_graphic.cpp;/home/punk4tt4ck/Desktop/ICP/src/GUI/game_menu.cpp;/home/punk4tt4ck/Desktop/ICP/src/GUI/main.cpp;/home/punk4tt4ck/Desktop/ICP/src/GUI/messageWindow.cpp;/home/punk4tt4ck/Desktop/ICP/src/GUI/modebox_graphic.cpp;/home/punk4tt4ck/Desktop/ICP/src/GUI/movebox_graphic.cpp;/home/punk4tt4ck/Desktop/ICP/src/GUI/reset_graphic.cpp;/home/punk4tt4ck/Desktop/ICP/src/GUI/speedbox_graphic.cpp")
+set(AM_HEADERS "/home/punk4tt4ck/Desktop/ICP/src/GUI/includes/board.h;/home/punk4tt4ck/Desktop/ICP/src/GUI/includes/chess_game.h;/home/punk4tt4ck/Desktop/ICP/src/GUI/includes/coordinates_graphic.h;/home/punk4tt4ck/Desktop/ICP/src/GUI/includes/dialog_graphic.h;/home/punk4tt4ck/Desktop/ICP/src/GUI/includes/game_menu.h;/home/punk4tt4ck/Desktop/ICP/src/GUI/includes/messageWindow.h;/home/punk4tt4ck/Desktop/ICP/src/GUI/includes/modebox_graphic.h;/home/punk4tt4ck/Desktop/ICP/src/GUI/includes/movebox_graphic.h;/home/punk4tt4ck/Desktop/ICP/src/GUI/includes/reset_graphic.h;/home/punk4tt4ck/Desktop/ICP/src/GUI/includes/speedbox_graphic.h")
+set(AM_SETTINGS_FILE "/home/punk4tt4ck/Desktop/ICP/src/CMakeFiles/chess_autogen.dir/AutogenOldSettings.txt")
+# Qt
+set(AM_QT_VERSION_MAJOR 5)
+set(AM_QT_MOC_EXECUTABLE "/usr/lib/qt5/bin/moc")
+set(AM_QT_UIC_EXECUTABLE "/usr/lib/qt5/bin/uic")
+# MOC settings
+set(AM_MOC_SKIP "")
+set(AM_MOC_DEFINITIONS "QT_CORE_LIB;QT_GUI_LIB;QT_NO_DEBUG;QT_WIDGETS_LIB")
+set(AM_MOC_INCLUDES "/home/punk4tt4ck/Desktop/ICP/src;/usr/include/x86_64-linux-gnu/qt5;/usr/include/x86_64-linux-gnu/qt5/QtWidgets;/usr/include/x86_64-linux-gnu/qt5/QtGui;/usr/include/x86_64-linux-gnu/qt5/QtCore;/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++;/usr/include")
+set(AM_MOC_OPTIONS "")
+set(AM_MOC_RELAXED_MODE "")
+set(AM_MOC_MACRO_NAMES "Q_OBJECT;Q_GADGET;Q_NAMESPACE")
+set(AM_MOC_DEPEND_FILTERS "")
+set(AM_MOC_PREDEFS_CMD "/usr/bin/c++;-dM;-E;-c;/usr/share/cmake-3.13/Modules/CMakeCXXCompilerABI.cpp")
+# UIC settings
+set(AM_UIC_SKIP "")
+set(AM_UIC_TARGET_OPTIONS "")
+set(AM_UIC_OPTIONS_FILES "")
+set(AM_UIC_OPTIONS_OPTIONS "")
+set(AM_UIC_SEARCH_PATHS "")

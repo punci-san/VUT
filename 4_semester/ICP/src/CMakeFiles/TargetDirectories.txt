@@ -1,0 +1,4 @@
+/home/punk4tt4ck/Desktop/ICP/src/CMakeFiles/rebuild_cache.dir
+/home/punk4tt4ck/Desktop/ICP/src/CMakeFiles/chess.dir
+/home/punk4tt4ck/Desktop/ICP/src/CMakeFiles/edit_cache.dir
+/home/punk4tt4ck/Desktop/ICP/src/CMakeFiles/chess_autogen.dir
