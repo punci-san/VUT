@@ -1,0 +1,19 @@
+Archive:  xskuta04.zip
+  inflating: lexical_parser.php      
+  inflating: parse.php               
+  inflating: syntax_analyzator_parser.php  
+  inflating: syntax_parser.php       
+  inflating: test.php                
+  inflating: test_argument_checker.php  
+  inflating: test_file_executer.php  
+  inflating: test_file_loader.php    
+--Usage
+php parse.php < IPP_source > XML_output
+Usage: test.php [arguments]
+	--help: To see this help message.
+	--directory=path: Directory containing the tests. If not specified current directory is chosen.
+	--recursive: Look throug every folder in the directory.
+	--parse-script=file: Name of the parser script. If not specified "parse.php" is chosen.
+	--int-script=file: Name of the interpret script. If not specified "interpret.py" is chosen.
+	--parse-only: Specify to only test parser script
+	--int-only: Specify to only test interpret script

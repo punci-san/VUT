@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Interpret-only</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+    body
+    {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #18181b;
+    }
+    .test-type
+    {
+        border-bottom: 0.1em solid white;
+    }
+
+    .test-type .test-percentage
+    {
+        font-size:  1em;
+        color: white;
+        text-align: right;
+        float: right;
+    }
+    .test-type .test-name
+    {
+        color:white;
+        font-size: 1.25em;
+        text-align: center;
+    }
+    .test-statistics
+    {
+        width: 100%;
+        text-align: right;
+        padding-bottom: 0.5em;
+    }
+
+    .test-statistics span
+    {
+        font-size:1.25em;
+        color: white;
+        padding-right: 0.5em;
+    }
+    ul
+    {
+        list-style-type: none;
+        padding: 0;
+        border: 1px solid rgb(17, 167, 226);
+    }
+    ul li
+    {
+        padding: 8px 16px;
+        border-bottom: 1px solid rgb(17, 167, 226);
+    }
+    ul li .first
+    {
+        color:white;
+        padding:0;
+        text-align: left;
+    }
+    ul li .second-success
+    {
+        color:#46ea4e;
+        padding:0;
+        float:right;
+    }
+    ul li .second-failed
+    {
+        color:#e54334;
+        padding:0;
+        float:right;
+    }
+    ul li:last-child
+    {
+        border-bottom: none
+    }
+</style>
+<body>
+    <div class="test-type">
+      <span class="test-name">Interpret-only</span>
+      <span class="test-percentage">Passed: 88.04 %</span>
+    </div>
+    <ul class="test-list">
+        <li>
+        <span class="first">../tests/int-only/stack_test</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/toast_inst_number</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/toast_arg_swap</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/toast_arg_number</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/write_test</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/toast_inst_swap</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/toast_#_in_string</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/stack_calc/kalkulacka_STACK_rozsireni</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/move1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/pops4</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/return2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/defvar3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/pushframe1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/defvar1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/return1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/popframe2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/pushs3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/popframe1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/move2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/pushs1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/popframe3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/pushframe3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/createframe1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/pushframe2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/move3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/defvar2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/pops3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/pops5</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/call3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/pushs2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/popframe4</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/call2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/call1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/pops1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-fail/pops2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-pass/from-parse-only/just_header</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-pass/from-parse-only/header_w_space</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-pass/from-parse-only/esc_sequence</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-pass/from-parse-only/no_arg_instructions1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-pass/from-parse-only/header_comment4</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-pass/from-parse-only/header_comment2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-pass/from-parse-only/no_arg_instructions3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-pass/from-parse-only/every_instruction_program</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-pass/from-parse-only/header_comment3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-pass/from-parse-only/header_comment1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-pass/from-parse-only/no_arg_instructions4</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/vyzi_tests/should-pass/from-parse-only/no_arg_instructions2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_read_string_empty_file</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_exit_undefined_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_strlen</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_pushframe</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_jumpifneq_bool</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_basestack_push_uninitialized_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_lf_undefined_frame_2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_idiv_notint</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_popframe_noframe</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_eq_differenttype_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_pushframe2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_read_int_empty_file</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_strlen_wrong_operand_type</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_call_jump_backwards_return</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_read_bool_case_insensitive</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_concat_uninitialized_var2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_type_undefined_frame</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_setchar2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_int2char_wrongnumber</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_lf_taking_from_correct_frame</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_getchar_out_of_the_bounds</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_strlen_undefined_var2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_type_int</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_type_undefined_var2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_read_bool_empty_file</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_read_string_multiple_lines</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_gt_differenttype</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_lf_uninitialized_variable2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_concat_undefined_frame2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_stri2int_notstring</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_or</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_setchar_undefined_var3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_type_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_gt</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_basestack_push_undefined_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_sub</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_call_jump_backwards</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_stri2int_outofbounds</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_int2char</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_jumpifneq_int</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_read_bool</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_write_convert_escape_seq_from_xml</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_read_undefined_frame</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_jumpifeq_int</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_mul_notint</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_lt</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_read_multiple_times_from_file</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_jumpifneq_differenttype_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_basestack_push_var_pop2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_lt_differenttype</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_gt_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_setchar_undefined_frame3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_strlen_escape_seq_from_read</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_strlen_diacritics</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_return_empty_call_stack</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_empty_program</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_exit_valid3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_tf_undefined_frame</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_concat_undefined_var2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_eq</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_basestack_push_undefined_frame</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_jumpifeq_differenttype</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_setchar_out_of_the_bounds</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_write_nil2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_or_notbool</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_tf_undefined_frame_2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_setchar_undefined_frame</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_eq_differenttype</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_jumpifneq_differenttype</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_basestack_push_var_pop</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_jumpifeq_bool</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_type_of_uninitialized_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_getchar_uninitialized_var2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_sub_notint</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_concat_wrong_operand_type2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_type_bool</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_and</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_basestack_push_pop_pop</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_lf_uninitialized_variable</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_strlen_uninitialized_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_strlen_undefined_frame2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_int2char_notnumber</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_call_jump_forward</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_getchar_wrong_operand_type</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_concat_wrong_operand_type</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_concat</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_gf_uninitialized_variable</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_setchar_empty_string</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_strlen_undefined_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_getchar_undefined_var3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_exit_too_big</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_concat_uninitialized_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_tf_uninitialized_variable2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_concat_undefined_frame3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_call_correct_jumps_number</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_lf_undefined_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_jumpifeq_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_pushframe_noframe2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_createframe_clear_tf</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_write_dont_convert_escape_seq_from_read</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_concat_undefined_frame</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test write nil2</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_type_uninitialized_second_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_popframe_multiple_times</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_add_notint</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_setchar_wrong_operand_types</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_read_int_default_value</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_lt_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_exit_undefined_frame</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_getchar_undefined_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_stri2int_notnumber</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_call_non_existing_label</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_gf_undefined_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_basestack_push_pop</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_read_change_value</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_tf_undefined_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_strlen_undefined_frame</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_basestack_pop_from_empty</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_gf_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_tf_uninitialized_variable</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_strlen_escape_seq</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_getchar_uninitialized_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_pushframe_noframe</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_jumpifeq_string</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_exit_uninitialized_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_read_undefined_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_read_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_setchar_wrong_operand_types2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_concat_empty_string</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_call_jump_forward_return</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_setchar</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_lf_defined_but_pushed_over</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_type_string</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_exit_valid</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_setchar_undefined_var2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_stri2int</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_read_string</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_exit_too_small</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_move_from_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_call_return_return</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_read_int</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_concat_empty_string2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_setchar_undefined_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_jumpifneq_string</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_eq_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_return_empty_stack_more_calls</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_getchar_undefined_var2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_not_notbool</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_and_notbool</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_basestack_pop_from_empty2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_exit_valid2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_getchar_wrong_operand_type2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_jumpifeq_differenttype_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_basestack_pop_undefined_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_popframe_noframe2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_idiv</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_strlen_empty_string</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_type_undefined_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_read_bool_default_value</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_setchar_undefined_frame2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_add</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_basestack_pop_from_top</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_concat_undefined_var3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_setchar_wrong_operand_types3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_trying_to_move_from_undefined_variable</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_concat_undefined_var</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_not</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_exit_not_int</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_move_into_undefined_var_in_lf</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_lf_undefined_frame</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_mul</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_getchar</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_pushframe_popframe</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/test_pushframe_deleted_tf</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_ands</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_nots</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_jumpifneqs_string</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_jumpifeqs_differenttype_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_gts_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_jumpifeqs_int</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_lts_differenttype</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_idivs_notint</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_eqs_differenttype</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_jumpifneqs_int</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_ors</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_jumpifeqs_bool</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_eqs_differenttype_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_jumpifeqs_string</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_int2chars</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_muls_notint</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_subs_notint</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_stri2ints</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_stri2ints_outofbounds</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_lts_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_idivs</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_adds</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_eqs</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_stri2ints_notnumber</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_subs</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_stri2ints_notstring</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_int2chars_wrongnumber</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_muls</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_ors_notbool</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_jumpifneqs_bool</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_jumpifneqs_differenttype_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_adds_notint</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_ands_notbool</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_eqs_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_jumpifneqs_differenttype</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_int2chars_notnumber</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_jumpifeqs_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_gts</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_jumpifeqs_differenttype</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_clears</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_nots_notbool</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_gts_differenttype</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/stack_tests/stack_lts</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_accepted_numbers</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_move</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_int2float_undefined_var2</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_int2float_undefined_var</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_float2int</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_float2int_undefined_var2</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_sub_float_int</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_accepted_numbers2</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_float2int_undefined_var</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_int2float_undefined_frame</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_add_float_float</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_tf_lf</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_int2float_uninicialized_variable</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_accepted_numbers4</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_accepted_numbers3</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_accepted_numbers5</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_add_float_int</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_read</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_pushs</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_mul_float_float</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_float2int_undefined_frame</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_read_wrongfloat</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_div_float_int</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_int2float_undefined_frame2</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_int2float</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_float2int_wrong_operand2</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_accepted_numbers6</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_float2int_wrong_operand</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_int2float_wrong_operand</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_mul_float_int</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_div_float_float</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_float2int_uninicialized_variable</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_move2</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_div_zero</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_float2int_undefined_frame2</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_sub_float_float</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/float_tests/float_int2float_wrong_operand2</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/󁈞лȺ4đ󆅋%ﴘԙ۳𱳺mޜ󭚟𢋎4⍔ꄢݘ�eۭކ𜔔󂸹՜򅗩χϵл󯙭򝄡爭٨d䲨٦E𧲉򹯟/񐾗𻯓駛�텤躙簅?򅩽𗑊6񰻹량񤞟떷q끁񞳜ɧ𜸁[S󵕤Np#򃁃𗡟֟󕯉ܫ򣚐􊛘𡹸񭁿𿽽</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_case_sensitive_type</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_excessive_text_in_program</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_program_wrong_language</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_two_arg1s</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_undefined_attribute_in_arg</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_case_sensitive_opcode</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_name_and_description_attributes_in_program</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_case_sensitive_type4</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_arg_has_element</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_excessive_text_in_program3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_two_instructions_with_same_order</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_undefined_element_in_program</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_whitespaces_in_xml</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_undefined_element_in_instruction</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_case_sensitive_type2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_undefined_attribute_in_program</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_excessive_text_in_instruction2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_excessive_text_in_instruction</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_undefined_attribute_in_instruction</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_excessive_text_in_program2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_wrong_number_of_params</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_case_sensitive_type3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_excessive_text_in_instruction3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">../tests/int-only/venki_tests/xml_tests/xml_unknown_opcode</span>
+        <span class="second-success">OK</span>
+        </li>
+    </ul>
+    <div class="test-statistics">
+    <span>Total: 326</span>
+    <span>Passed: 287</span>
+    <span>Failed: 39</span>
+</div>
+</body>
+</html>

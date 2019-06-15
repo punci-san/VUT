@@ -1,0 +1,11 @@
+.IFJcode18
+
+JUMP main
+
+LABEL hello
+WRITE string@hello
+RETURN
+
+LABEL main
+CALL hello
+WRITE string@\032world!\010

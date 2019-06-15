@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Parse-only</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+    body
+    {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #18181b;
+    }
+    .test-type
+    {
+        border-bottom: 0.1em solid white;
+    }
+
+    .test-type .test-percentage
+    {
+        font-size:  1em;
+        color: white;
+        text-align: right;
+        float: right;
+    }
+    .test-type .test-name
+    {
+        color:white;
+        font-size: 1.25em;
+        text-align: center;
+    }
+    .test-statistics
+    {
+        width: 100%;
+        text-align: right;
+        padding-bottom: 0.5em;
+    }
+
+    .test-statistics span
+    {
+        font-size:1.25em;
+        color: white;
+        padding-right: 0.5em;
+    }
+    ul
+    {
+        list-style-type: none;
+        padding: 0;
+        border: 1px solid rgb(17, 167, 226);
+    }
+    ul li
+    {
+        padding: 8px 16px;
+        border-bottom: 1px solid rgb(17, 167, 226);
+    }
+    ul li .first
+    {
+        color:white;
+        padding:0;
+        text-align: left;
+    }
+    ul li .second-success
+    {
+        color:#46ea4e;
+        padding:0;
+        float:right;
+    }
+    ul li .second-failed
+    {
+        color:#e54334;
+        padding:0;
+        float:right;
+    }
+    ul li:last-child
+    {
+        border-bottom: none
+    }
+</style>
+<body>
+    <div class="test-type">
+      <span class="test-name">Parse only tests</span>
+      <span class="test-percentage">Passed: 95.97 %</span>
+    </div>
+    <ul class="test-list">
+        <li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/wrong_arg_type5</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/wrong_header1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/wrong_arg_count2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/wrong_esc_sequence2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/wrong_arg_count1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/wrong_header5</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/wrong_header2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/wrong_arg_type1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/unknown_opcode1</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/wrong_arg_type2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/wrong_arg_type4</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/wrong_frame3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/wrong_arg_count3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/wrong_header3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/wrong_frame2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/wrong_esc_sequence1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/unknown_opcode2</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/unknown_opcode3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/wrong_arg_type3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-fail/wrong_frame1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-pass/just_header</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-pass/header_w_space</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-pass/esc_sequence</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-pass/no_arg_instructions1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-pass/header_comment4</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-pass/header_comment2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-pass/no_arg_instructions3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-pass/every_instruction_program</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-pass/header_comment3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-pass/header_comment1</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-pass/no_arg_instructions4</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-pass/no_arg_instructions2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/vyzi_tests/should-pass/header_lower</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Basic_tests/MissingHeader</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Basic_tests/SpecialCharacters</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Basic_tests/EveryInstruction</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">tests/parse-only/Basic_tests/EmptyProgram</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/22/unknown</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/21/no_header</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/21/wrong_header</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/bool_neither_true_false</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/test_not_instruction_operands</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/case_sensitive_int</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/string_character_backslash_one</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/wrong_frame</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/case_sensitive_string</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/wrong_var_parentheses</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/case_sensitive_lf</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/case_sensitive_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/string_character_backslash</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/wrong_var_number</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/wrong_var_bracket</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/nil_not_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/case_sensitive_bool2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/case_sensitive_tf</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/case_sensitive_bool</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/symb_unknown_type</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/string_character_backslash_two</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/23/case_sensitive_gf</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/var_underline</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/test_call_instruction</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/spaces</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/test_add_instruction4</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/header_comment_close</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/var_ampersand</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/test_and_instruction</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/test_uppercase</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/var_dollar</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/test_hash_instruction</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/var_excalamation</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/header_comment</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/whitespace_before</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/test_add_instruction2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/test_add_instruction</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/var_percent</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/test_break_instruction</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/var_minus</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/var_exclamation</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/test_add_instruction3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/nil_nil</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/string_at</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/string_character_hash</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/test_and_instruction2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/var_star</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Matthew_tests/0/var_questionmark</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/dify_test/extra_rtzw</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Example_tests/write_test</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Example_tests/simple_tag</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/Example_tests/read_test</span>
+        <span class="second-failed">FAILED</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/okay_constant6</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_constant7</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_constant9</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/okay_variable5</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_header4</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/okay_variable6</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_variable2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/okay_variable3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_header5</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_constant3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_header2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/okay_header</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/okay_constant2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/okay_variable</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_constant10</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/okay_string</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_variable</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/okay_constant</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_constant5</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_header6</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/okay_constant3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_header3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/okay_header2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_constant4</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/okay_header3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_variable4</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_constant6</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_variable3</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/okay_variable2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/okay_constant4</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_constant2</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/okay_constant5</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/okay_variable4</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_header</span>
+        <span class="second-success">OK</span>
+        </li><li>
+        <span class="first">tests/parse-only/isha_tests/wrong_constant</span>
+        <span class="second-success">OK</span>
+        </li>
+    </ul>
+    <div class="test-statistics">
+    <span>Total: 124</span>
+    <span>Passed: 119</span>
+    <span>Failed: 5</span>
+</div>
+</body>
+</html>
