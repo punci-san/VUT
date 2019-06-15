@@ -1,0 +1,8 @@
+0:conf2_visual: EDITOR nezadan, VISUAL zadan
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1 +1,2 @@
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc

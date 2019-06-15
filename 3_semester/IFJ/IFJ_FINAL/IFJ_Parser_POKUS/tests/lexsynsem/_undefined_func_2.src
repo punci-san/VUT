@@ -1,0 +1,6 @@
+def a(a)
+b()
+print a
+end
+
+a(5)

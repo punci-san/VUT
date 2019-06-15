@@ -1,0 +1,4 @@
+a=1
+b=5
+while a<b do
+a=a+1

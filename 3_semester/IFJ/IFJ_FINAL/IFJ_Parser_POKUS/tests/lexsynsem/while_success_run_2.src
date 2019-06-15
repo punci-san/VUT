@@ -1,0 +1,14 @@
+def ahoj(a)
+  if a=="Ahoj" then
+    print(a)
+  else
+    print("Nazdar")
+  end
+end
+
+str="Ahoj!"
+count = 5
+while count > 0 do
+	ahoj(str)
+	count = count-1
+end

@@ -1,0 +1,6 @@
+def g()
+end
+def f(a)
+end
+f(g)
+

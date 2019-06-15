@@ -1,0 +1,3 @@
+a = "nil"
+a
+b = a + "nil"

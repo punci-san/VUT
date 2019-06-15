@@ -1,0 +1,17 @@
+0:desc2b_optm: editace nejcasteji editovaneho souboru (-m)
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi -m . <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,4 +1,7 @@
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./ahoj.c (hash 8c686a5)
+#   -spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+#   +Log neobsahuje ziadny subory v /.sanitized..

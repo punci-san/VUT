@@ -1,0 +1,8 @@
+#Function with function as parameter
+
+a = "hope"
+
+chr(length(a))
+
+
+

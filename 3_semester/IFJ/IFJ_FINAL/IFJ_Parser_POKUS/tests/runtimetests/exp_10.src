@@ -1,0 +1,5 @@
+if 3 == 3.00 then
+	print "OK"
+else
+print "NOK"
+end

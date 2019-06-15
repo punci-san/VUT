@@ -1,0 +1,5 @@
+a = "\t"
+if a then
+	b = 2 / 0.000
+else
+end

@@ -1,0 +1,18 @@
+#Using same names for parameter and function
+
+
+
+
+fc(3.0025e+4)
+
+def fc (fc)
+  n = 5
+   if (n <= 1) then 
+       n
+   else
+   a = n - 1
+   b = fc(a)
+   c = fc(b)
+   c = c + a   
+   end 
+end

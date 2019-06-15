@@ -1,0 +1,7 @@
+a = "Ahoj"
+b = "Ahojky"
+if b > a then
+	a = 1*2
+else
+	b = 2*4-5*2-4*42/24-24-42-1-4*4/5
+end

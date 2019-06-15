@@ -1,0 +1,14 @@
+a = 0
+a = 3
+a = 3e0
+a = 0e0
+a = 3.33e0
+a = 3.33e0
+a = 3.33
+=begin
+komentář
+=end
+a = nil
+a = 3
+a = nil
+a = 3.3

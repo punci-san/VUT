@@ -1,0 +1,23 @@
+#Wrong parameter input
+
+
+def fc (3.0135)
+ 
+   n = 7
+   if (n <= 1) then 
+       n
+   else
+   a = n - 1
+   b = fc(a)
+   c = fc(b)
+   c = c + a   
+   end 
+
+  
+end
+
+fc(3.0025e+4)
+
+
+
+

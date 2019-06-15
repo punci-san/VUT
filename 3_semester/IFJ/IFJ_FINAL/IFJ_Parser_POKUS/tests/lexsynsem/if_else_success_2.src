@@ -1,0 +1,9 @@
+a = 5
+while a >= 1 do
+if a > 2 then
+  print a, " > 2"
+else
+  print a, " <= 2"
+end
+a = a - 1
+end

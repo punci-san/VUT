@@ -1,0 +1,5 @@
+count = 5.0
+while count >= 0 do
+a=5/count
+count = count - 1
+end	

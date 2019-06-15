@@ -1,0 +1,4 @@
+a=1
+while b do
+print "a = ", a, "\n"
+end

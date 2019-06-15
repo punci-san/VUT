@@ -1,0 +1,93 @@
+.IFJcode18
+
+CREATEFRAME
+PUSHFRAME
+
+DEFVAR LF@a
+MOVE LF@a float@0x0p+2
+
+DEFVAR LF@b
+MOVE LF@b float@0x0p+50
+
+# b = a + 5
+# v = A + B
+
+DEFVAR LF@tmp10
+
+DEFVAR LF@$tmp11
+
+TYPE LF@$tmp11 LF@a
+
+DEFVAR LF@$tmp12
+
+TYPE LF@$tmp12 LF@b
+
+# Ak prvy neni STRING ideme na dalsiu kontrolu NIL
+JUMPIFNEQ $label$next$nil$check$bothequal$0 LF@$tmp11  string@string
+
+# Ak su oba STRINGY skaceme na EQ
+JUMPIFEQ $label$eqnot$bothequal$0 LF@$tmp12 string@string
+
+# INAC CHYBA
+exit int@4
+
+# Skok pre kontrolu NIL
+LABEL $label$next$nil$check$bothequal$0
+
+# Ak prvy neni NIL ideme na dalsiu kontrolu INT
+JUMPIFNEQ $label$next$intfloat$check$bothequal$0 LF@$tmp11  string@nil
+
+# Ak su oba NIL skaceme na EQ
+JUMPIFEQ $label$eqnot$bothequal$0 LF@$tmp12 string@nil
+
+# Inac chyba
+exit int@4
+
+# KONTROLA INT INT/FLOAT
+LABEL $label$next$intfloat$check$bothequal$0
+
+# Ak prvy neni INT ideme na dalsiu kontrolu FLOAT
+JUMPIFNEQ $label$next$floatint$check$bothequal$0 LF@$tmp11  string@int
+
+# Ak su oba INT skaceme na EQ
+JUMPIFEQ $label$eqnot$bothequal$0 LF@$tmp12 string@int
+
+# Ak je prvy INT a druhy FLOAT skaceme na INT2FLOAT
+JUMPIFEQ $label$first$inttofloat$bothequal$0 LF@$tmp12 string@float
+
+EXIT int@4
+
+
+# KONTROLA FLOAT FLOAT/INT
+LABEL $label$next$floatint$check$bothequal$0
+
+# Na 100% vieme ze prvy je typu FLOAT lebo vsetky ostatne typy sme vylucili
+
+# Ak su oba FLOAT skaceme na EQ
+JUMPIFEQ $label$eqnot$bothequal$0 LF@$tmp12 string@float
+
+# Ak je prvy FLOAT a druhy INT skaceme na INT2FLOAT
+JUMPIFEQ $label$second$inttofloat$bothequal$0 LF@$tmp12 string@int
+
+EXIT int@4
+
+
+LABEL $label$first$inttofloat$bothequal$0
+
+INT2FLOAT LF@a LF@a
+
+JUMP $label$eqnot$bothequal$0
+
+LABEL $label$second$inttofloat$bothequal$0
+
+INT2FLOAT LF@b LF@b
+
+# Label pre EQ
+LABEL $label$eqnot$bothequal$0
+
+# Urobime kontrolu ==
+EQ LF@tmp10 LF@a LF@b
+
+# AK mame != tak urobime este naviac NOT
+
+POPFRAME

@@ -1,0 +1,10 @@
+a = 0
+while a < 15 do
+    print a, " "
+    if a == 10 then
+        print "made it to ten!!"
+    else
+    end
+    a = a + 1
+end
+

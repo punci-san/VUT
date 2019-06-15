@@ -1,0 +1,6 @@
+a = 2
+if a > 0 then
+	a = c + 2
+else
+	c = 2
+end

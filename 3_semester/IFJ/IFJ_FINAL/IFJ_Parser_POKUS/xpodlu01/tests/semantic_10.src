@@ -1,0 +1,10 @@
+d = 3
+c = 4
+=begin 
+    vypocitame vysledok
+=end 
+if(d == 3) then
+    vysledok = (d + c)/(d+c) * 44 / d 
+    else 
+    cc
+end

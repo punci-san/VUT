@@ -1,0 +1,5 @@
+def a()
+vysl = b + 6 
+end
+a()
+

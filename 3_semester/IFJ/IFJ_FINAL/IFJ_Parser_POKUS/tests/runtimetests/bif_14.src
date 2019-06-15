@@ -1,0 +1,10 @@
+a = "hoj"
+b = 1
+c = 2
+length(a)
+substr(a,c,b)
+ord(a,c)
+chr(c)
+ord("ahoj", 2)
+a = ord "saaas", 3
+chr a

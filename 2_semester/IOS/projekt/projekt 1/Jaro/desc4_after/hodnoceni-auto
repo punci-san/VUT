@@ -1,0 +1,17 @@
+0:desc4_after: seznam editovanych souboru po datu (-a)
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi greeting.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi -a 2018-03-31 . <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,2 +1,5 @@
+#   -greeting.c
+#   -hello.c
+#   +xbalko02.
+#   +Ziadne subory vo wedirc
+#   +Ziadne subory vo wedirc
+#   +Ziadne subory vo wedirc
+#   +Ziadne subory vo wedirc

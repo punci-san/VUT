@@ -1,0 +1,15 @@
+def a(a1, a2)
+a1/a2
+end
+
+var=6
+if var==6 then
+  var = a(var, 2)
+  print var
+  if var==3 then
+    var = a(var, 3)
+    print var
+  else
+  end
+else
+end

@@ -1,0 +1,5 @@
+def a()
+print "OK"
+end
+
+a(5,4)

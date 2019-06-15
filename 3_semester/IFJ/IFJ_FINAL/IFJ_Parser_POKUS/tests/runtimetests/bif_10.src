@@ -1,0 +1,4 @@
+b = substr "ahoj", 0, 4
+a = substr b, 1, 4
+c = ord a, 2
+b = c + 2

@@ -1,0 +1,38 @@
+0:note4_filenames: prace s neobvyklymi nazvy souboru
+# ./wedi ':' <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi ' ' <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi # <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi @ <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi '$' <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi '&' <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi '$' <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi '*' <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi '(' <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,9 +1,18 @@
+#    spusten editor s: /.sanitized./: (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./  (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./# (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./@ (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./$ (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./& (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./$ (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./* (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./( (hash da427fd)
+#   +Ziadne subory vo wedirc
+# diff -u stderr.ref stderr
+#   --- stderr.ref
+#   +++ stderr
+#   @@ -0,0 +1,2 @@
+#   +grep: nothing to repeat
+#   +grep: missing )

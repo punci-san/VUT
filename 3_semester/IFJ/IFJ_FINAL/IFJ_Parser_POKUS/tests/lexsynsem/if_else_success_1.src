@@ -1,0 +1,10 @@
+def ahoj(a)
+  if a=="Ahoj" then
+    print a
+  else
+    print "Nazdar"
+  end
+end
+
+str="Ahoj!"
+ahoj(str)

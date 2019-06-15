@@ -1,0 +1,19 @@
+# Function in expression error, no brackets
+
+def myPrinter(string, stringLength)
+
+   i = 0
+
+   while i < stringLength - 1  do  
+  
+     character = substr( string , i , 1 )         # delka bude 1 
+     print character
+  
+    i = i + 1
+
+   end
+   
+end 
+
+
+ a = 5 + myPrinter "Alive", 6

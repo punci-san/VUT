@@ -1,0 +1,108 @@
+.IFJcode18
+CREATEFRAME
+PUSHFRAME
+
+# Vytvorime TMP variable
+DEFVAR LF@$tmp00  # Na ulozenie vysledku
+
+# Vytvorime variable
+DEFVAR LF@a
+DEFVAR LF@b
+
+# Inicializujeme ich
+MOVE LF@a float@0x5p+2
+MOVE LF@b int@5
+
+# Vytvorime typy variable
+DEFVAR LF@$type$a
+DEFVAR LF@$type$b
+
+# Typy ?
+TYPE LF@$type$a LF@a
+TYPE LF@$type$b LF@b
+
+# INT ? INT/FLOAT
+JUMPIFEQ $label$second$intfloat$check$divide$0 LF@$type$a string@int
+
+# FLOAT ? FLOAT/INT
+JUMPIFEQ $label$second$floatint$check$divide$0 LF@$type$a string@float
+
+EXIT int@4
+
+LABEL $label$second$intfloat$check$divide$0
+
+# je to INT / INT ?
+JUMPIFEQ $label$idiv$divide$0 LF@$type$b string@int
+
+# je to INT * FLOAT ?
+JUMPIFEQ $label$first$inttofloat$divide$0 LF@$type$b string@float
+
+# Ukoncime chybou 4
+EXIT int@4
+
+# Label pre kontrolu FLOAT a INT
+LABEL $label$second$floatint$check$divide$0
+
+# je to FLOAT * FLOAT ?
+JUMPIFEQ $label$div$divide$0 LF@$type$b string@float
+
+# je to FLOAT * INT ?
+JUMPIFEQ $label$second$inttofloat$divide$0 LF@$type$b string@int
+
+# Ukoncime chybou 4
+EXIT int@4
+
+# Prvy daj na FLOAT
+LABEL $label$first$inttofloat$divide$0
+
+# Dame prvy na float
+INT2FLOAT LF@a LF@a
+
+# SKocime na nasobenie
+JUMP $label$div$divide$0
+
+# Druhy daj na FLOAT
+LABEL $label$second$inttofloat$divide$0
+
+# Dame druhy na float
+INT2FLOAT LF@b LF@b
+
+# Jumpneme na DIV
+JUMP $label$div$divide$0
+
+# Skok pre IDIV
+LABEL $label$idiv$divide$0
+
+# Jumpni dalej ak neni int@0
+JUMPIFNEQ $label$idiv$continue$divide$0 LF@b int@0
+
+# Inac ukonci lebo delenie 0
+EXIT int@9
+
+# Skok pre pokracovanie IDIV
+LABEL $label$idiv$continue$divide$0
+
+IDIV LF@$tmp00 LF@a LF@b
+
+# Skocime na koniec
+JUMP $label$end$divide$0
+
+# Skok pre DIV
+LABEL $label$div$divide$0
+
+# Jumpni dalej ak neni float@0x0p+0
+JUMPIFNEQ $label$div$continue$divide$0 LF@b float@0x0p+0
+
+# Inac ukonci lebo delenie 0
+EXIT int@9
+
+# Skok pre pokracovanie DIV
+LABEL $label$div$continue$divide$0
+
+DIV LF@$tmp00 LF@a LF@b
+
+LABEL $label$end$divide$0
+
+WRITE LF@$tmp00
+
+POPFRAME

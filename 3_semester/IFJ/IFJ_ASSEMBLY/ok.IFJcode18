@@ -1,0 +1,22 @@
+.IFJcode18
+CREATEFRAME
+PUSHFRAME
+DEFVAR LF@a
+MOVE LF@a string@h
+
+DEFVAR        LF@a$type
+DEFVAR        LF@a$tmp
+
+TYPE     LF@a$type     LF@a
+MOVE     LF@a$tmp     LF@a
+JUMPIFEQ     $foo$if$1$true$int     LF@a$type    string@int
+JUMPIFEQ    $foo$if$1$true$float    LF@a$type    string@float
+
+EXIT int@4
+
+LABEL    $foo$if$1$true$int
+INT2FLOAT    LF@a$tmp    LF@a
+
+LABEL     $foo$If$1$true$float
+ADD    LF@a    LF@a$tmp    float@0x1p-1
+POPFRAME

@@ -1,0 +1,79 @@
+.IFJcode18
+
+CREATEFRAME
+PUSHFRAME
+
+DEFVAR LF@a
+MOVE LF@a string@Hello
+
+DEFVAR LF@b
+MOVE LF@b string@world
+
+# b = a + 5
+# v = A + B
+
+DEFVAR LF@tmp10
+
+DEFVAR LF@$tmp11
+
+TYPE LF@$tmp11 LF@a
+
+DEFVAR LF@$tmp12
+
+TYPE LF@$tmp12 LF@b
+
+JUMPIFEQ $label$second$string$check$plus$0 LF@$tmp11  string@string
+
+JUMPIFEQ $label$second$intfloat$check$plus$0 LF@$tmp11  string@int
+
+JUMPIFEQ $label$second$floatint$check$plus$0 LF@$tmp11  string@float
+
+EXIT int@4
+
+LABEL $label$second$string$check$plus$0
+
+JUMPIFEQ $label$concat$plus$0 LF@$tmp12  string@string
+
+EXIT int@4
+
+LABEL $label$second$intfloat$check$plus$0
+
+JUMPIFEQ $label$add$plus$0 LF@$tmp12  string@int
+
+JUMPIFEQ $label$firsttofloat$plus$0 LF@$tmp12  string@float
+
+EXIT int@4
+
+LABEL $label$second$floatint$check$plus$0
+
+JUMPIFEQ $label$add$plus$0 LF@$tmp12  string@float
+
+JUMPIFEQ $label$secondtofloat$plus$0 LF@$tmp12  string@int
+
+EXIT int@4
+
+LABEL $label$concat$plus$0
+
+CONCAT LF@tmp10 LF@a LF@b
+
+JUMP  $label$end$plus$0
+
+LABEL $label$firsttofloat$plus$0
+
+INT2FLOAT LF@a LF@a
+
+JUMP $label$add$plus$0
+
+LABEL $label$secondtofloat$plus$0
+
+INT2FLOAT LF@$tmp12 LF@$tmp12
+
+LABEL $label$add$plus$0
+
+ADD Lf@tmp10 LF@a LF@b
+
+LABEL $label$end$plus$0
+
+WRITE LF@tmp10
+
+POPFRAME

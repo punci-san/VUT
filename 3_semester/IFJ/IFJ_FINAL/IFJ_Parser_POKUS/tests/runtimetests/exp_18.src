@@ -1,0 +1,4 @@
+if 10 != nil then
+ a = 2 / 0
+else
+end

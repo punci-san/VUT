@@ -1,0 +1,7 @@
+def a(a1, a2)
+a1/a2
+end
+
+str="HaHa"
+vysl = a(str, 2)
+print vysl

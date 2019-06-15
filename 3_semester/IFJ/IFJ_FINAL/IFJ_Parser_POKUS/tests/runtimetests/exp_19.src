@@ -1,0 +1,6 @@
+#THIS SHOULD WRITE "B"
+a = "Ahoj"
+b = ord(a, 0)
+b = b + 1
+a = chr(b)
+print a

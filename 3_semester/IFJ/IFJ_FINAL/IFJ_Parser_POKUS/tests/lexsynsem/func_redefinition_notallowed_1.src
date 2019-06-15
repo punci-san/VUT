@@ -1,0 +1,11 @@
+def a()
+print "a1"
+end
+
+a()
+
+def a()
+print "a2"
+end
+
+a()

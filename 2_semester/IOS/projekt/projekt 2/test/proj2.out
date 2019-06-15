@@ -1,0 +1,101 @@
+1		: BUS			: start
+2		: BUS			: arrival
+3		: BUS			: depart
+4		: BUS			: end
+5		: BUS			: arrival
+6		: BUS			: depart
+7		: BUS			: end
+8		: BUS			: arrival
+9		: BUS			: depart
+10		: BUS			: end
+11		: BUS			: arrival
+12		: BUS			: depart
+13		: RID 1		: start
+14		: RID 1		: enter: 1
+15		: BUS			: end
+16		: BUS			: arrival
+17		: BUS			: start boarding: 1
+18		: RID 1		: boarding
+19		: BUS			: end boarding: 0
+20		: BUS			: depart
+21		: BUS			: end
+22		: RID 1		: finish
+23		: BUS			: arrival
+24		: BUS			: depart
+25		: BUS			: end
+26		: BUS			: arrival
+27		: BUS			: depart
+28		: BUS			: end
+29		: BUS			: arrival
+30		: BUS			: depart
+31		: BUS			: end
+32		: BUS			: arrival
+33		: BUS			: depart
+34		: RID 2		: start
+35		: RID 2		: enter: 1
+36		: BUS			: end
+37		: BUS			: arrival
+38		: BUS			: start boarding: 1
+39		: RID 2		: boarding
+40		: BUS			: end boarding: 0
+41		: BUS			: depart
+42		: BUS			: end
+43		: RID 2		: finish
+44		: BUS			: arrival
+45		: BUS			: depart
+46		: BUS			: end
+47		: BUS			: arrival
+48		: BUS			: depart
+49		: BUS			: end
+50		: BUS			: arrival
+51		: BUS			: depart
+52		: BUS			: end
+53		: BUS			: arrival
+54		: BUS			: depart
+55		: BUS			: end
+56		: BUS			: arrival
+57		: BUS			: depart
+58		: BUS			: end
+59		: BUS			: arrival
+60		: BUS			: depart
+61		: RID 3		: start
+62		: RID 3		: enter: 1
+63		: BUS			: end
+64		: BUS			: arrival
+65		: BUS			: start boarding: 1
+66		: RID 3		: boarding
+67		: BUS			: end boarding: 0
+68		: BUS			: depart
+69		: RID 4		: start
+70		: RID 4		: enter: 1
+71		: BUS			: end
+72		: RID 3		: finish
+73		: BUS			: arrival
+74		: BUS			: start boarding: 1
+75		: RID 4		: boarding
+76		: BUS			: end boarding: 0
+77		: BUS			: depart
+78		: BUS			: end
+79		: RID 4		: finish
+80		: BUS			: arrival
+81		: BUS			: depart
+82		: BUS			: end
+83		: BUS			: arrival
+84		: BUS			: depart
+85		: BUS			: end
+86		: BUS			: arrival
+87		: BUS			: depart
+88		: BUS			: end
+89		: BUS			: arrival
+90		: BUS			: depart
+91		: RID 5		: start
+92		: RID 5		: enter: 1
+93		: BUS			: end
+94		: BUS			: arrival
+95		: BUS			: start boarding: 1
+96		: RID 5		: boarding
+97		: BUS			: end boarding: 0
+98		: BUS			: depart
+99		: BUS			: end
+100		: RID 5		: finish
+101		: BUS			: finish

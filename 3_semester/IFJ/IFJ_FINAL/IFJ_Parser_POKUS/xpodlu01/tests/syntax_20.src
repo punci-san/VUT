@@ -1,0 +1,8 @@
+#Wrong definition of variable
+
+a = "Hello"
+b = 6
+c = c 
+d = (d)
+e = nil
+f = 

@@ -1,0 +1,17 @@
+def boom()
+    print "Boom!"
+end
+
+boom
+boom
+
+
+def incr(n)
+    n = n + 1
+end
+
+a = 5
+a = incr(a)
+print a
+
+

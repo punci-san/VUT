@@ -1,0 +1,220 @@
+.IFJcode18
+CREATEFRAME
+PUSHFRAME
+DEFVAR	LF@a
+MOVE	LF@a	nil@nil
+MOVE	LF@a	string@Hello\010\039\032\039\010G
+DEFVAR	LF@$tmp0
+MOVE	LF@$tmp0	nil@nil
+MOVE	LF@$tmp0	LF@a
+DEFVAR	LF@$tmp1
+MOVE	LF@$tmp1	nil@nil
+MOVE	LF@$tmp1	string@nil\009\034\034
+DEFVAR	LF@$tmp2
+MOVE	LF@$tmp2	nil@nil
+DEFVAR	LF@$tmp3
+MOVE	LF@$tmp3	nil@nil
+DEFVAR	LF@$tmp4
+MOVE	LF@$tmp4	nil@nil
+TYPE	LF@$tmp3	LF@$tmp0
+TYPE	LF@$tmp4	LF@$tmp1
+JUMPIFEQ	$label$second$string$check$plus$0 	LF@$tmp3	string@string
+JUMPIFEQ	$label$second$intfloat$check$plus$0 	LF@$tmp3	string@int
+JUMPIFEQ	$label$second$floatint$check$plus$0 	LF@$tmp3	string@float
+EXIT	int@4
+LABEL	$label$second$string$check$plus$0 
+JUMPIFEQ	$label$concat$plus$0 	LF@$tmp4	string@string
+EXIT	int@4
+LABEL	$label$second$intfloat$check$plus$0 
+JUMPIFEQ	$label$add$plus$0 	LF@$tmp4	string@int
+JUMPIFEQ	$label$firsttofloat$plus$0 	LF@$tmp4	string@float
+EXIT	int@4
+LABEL	$label$second$floatint$check$plus$0 
+JUMPIFEQ	$label$add$plus$0 	LF@$tmp4	string@float
+JUMPIFEQ	$label$secondtofloat$plus$0 	LF@$tmp4	string@int
+EXIT	int@4
+LABEL	$label$concat$plus$0 
+CONCAT	LF@$tmp2	LF@$tmp0	LF@$tmp1
+JUMP	$label$end$plus$0 
+LABEL	$label$firsttofloat$plus$0 
+INT2FLOAT	LF@$tmp0	LF@$tmp0
+JUMP	$label$add$plus$0 
+LABEL	$label$secondtofloat$plus$0 
+INT2FLOAT	LF@$tmp1	LF@$tmp1
+LABEL	$label$add$plus$0 
+ADD	LF@$tmp2	LF@$tmp0	LF@$tmp1
+LABEL	$label$end$plus$0 
+DEFVAR	LF@b
+MOVE	LF@b	nil@nil
+MOVE	LF@b	LF@$tmp2
+JUMP	$$main
+LABEL	$fun$inputs
+PUSHFRAME
+DEFVAR	LF@%retval
+MOVE	LF@%retval	nil@nil
+READ	LF@%retval	string
+POPFRAME
+RETURN
+LABEL	$fun$inputi
+PUSHFRAME
+DEFVAR	LF@%retval
+MOVE	LF@%retval	nil@nil
+READ	LF@%retval	int
+POPFRAME
+RETURN
+LABEL	$fun$inputf
+PUSHFRAME
+DEFVAR	LF@%retval
+MOVE	LF@%retval	nil@nil
+READ	LF@%retval	float
+POPFRAME
+RETURN
+LABEL	$fun$print
+PUSHFRAME
+DEFVAR	LF@%retval
+MOVE	LF@%retval	nil@nil
+DEFVAR	LF@param1
+MOVE	LF@param1	LF@%1
+DEFVAR	LF@param2
+MOVE	LF@param2	nil@nil
+LABEL	$fun$print$loop
+JUMPIFEQ	$fun$print$end	LF@param1	int@0
+POPS	LF@param2
+WRITE	LF@param2
+SUB	LF@param1	LF@param1	int@1
+JUMP	$fun$print$loop
+LABEL	$fun$print$end
+CLEARS
+POPFRAME
+RETURN
+LABEL	$fun$length
+PUSHFRAME
+DEFVAR	LF@%retval
+MOVE	LF@%retval	nil@nil
+DEFVAR	LF@param1
+MOVE	LF@param1	LF@%1
+DEFVAR	LF@param2
+TYPE	LF@param2	LF@param1
+JUMPIFEQ	$fun$length$strlen	LF@param2	string@string
+EXIT	int@4
+LABEL	$fun$length$strlen
+STRLEN	LF@%retval	LF@param1
+POPFRAME
+RETURN
+LABEL	$fun$substr
+PUSHFRAME
+DEFVAR	LF@%retval
+DEFVAR	LF@param1
+DEFVAR	LF@param2
+DEFVAR	LF@param3
+MOVE	LF@%retval	string@
+MOVE	LF@param1	LF@%1
+MOVE	LF@param2	LF@%2
+MOVE	LF@param3	LF@%3
+DEFVAR	LF@$type$param1
+DEFVAR	LF@$type$param2
+DEFVAR	LF@$type$param3
+TYPE	LF@$type$param1	LF@param1
+LABEL	$fun$substr$again$check
+TYPE	LF@$type$param2	LF@param2
+TYPE	LF@$type$param3	LF@param3
+JUMPIFNEQ	$fun$substr$error	LF@$type$param1	string@string
+JUMPIFNEQ	$fun$substr$error	LF@$type$param2	string@int
+JUMPIFNEQ	$fun$substr$error	LF@$type$param3	string@int
+JUMP	$fun$substr$next$check
+LABEL	$fun$substr$error
+JUMPIFEQ	$fun$substr$floattoint$first	LF@$type$param2	string@float
+JUMPIFEQ	$fun$substr$floattoint$second	LF@$type$param3	string@float
+JUMPIFEQ	$fun$substr$next$check	LF@$type$param3	string@int
+EXIT	int@4
+LABEL	$fun$substr$floattoint$first
+FLOAT2INT	LF@param2	LF@param2
+JUMP	$fun$substr$again$check
+LABEL	$fun$substr$floattoint$second
+FLOAT2INT	LF@param3	LF@param3
+LABEL	$fun$substr$next$check
+DEFVAR	LF@$fun$substr$tmp0
+DEFVAR	LF@$fun$substr$tmp1
+DEFVAR	LF@$fun$substr$tmp2
+DEFVAR	LF@$fun$substr$tmp3
+STRLEN	LF@$fun$substr$tmp2	LF@param1
+LT	LF@$fun$substr$tmp0	LF@param2	int@0
+GT	LF@$fun$substr$tmp1	LF@param2	LF@$fun$substr$tmp2
+OR	LF@$fun$substr$tmp3	LF@$fun$substr$tmp0	LF@$fun$substr$tmp1
+JUMPIFEQ	$fun$substr$return$nil	LF@$fun$substr$tmp3	bool@true
+ADD	LF@param3	LF@param2	LF@param3
+GT	LF@$fun$substr$tmp0	LF@param3	LF@$fun$substr$tmp2
+JUMPIFEQ	$fun$substr$loop	LF@$fun$substr$tmp0	bool@false
+MOVE	LF@param3	LF@$fun$substr$tmp2
+LABEL	$fun$substr$loop
+JUMPIFEQ	$fun$substr$return	LF@param2	LF@param3
+GETCHAR	LF@$fun$substr$tmp0	LF@param1	LF@param2
+CONCAT	LF@%retval	LF@%retval	LF@$fun$substr$tmp0
+ADD	LF@param2	LF@param2	int@1
+JUMP	$fun$substr$loop
+LABEL	$fun$substr$return$nil
+MOVE	LF@%retval	nil@nil
+LABEL	$fun$substr$return
+POPFRAME
+RETURN
+LABEL	$fun$ord
+PUSHFRAME
+DEFVAR	LF@%retval
+DEFVAR	LF@param1
+DEFVAR	LF@param2
+MOVE	LF@%retval	nil@nil
+MOVE	LF@param1	LF@%1
+MOVE	LF@param2	LF@%2
+DEFVAR	LF@$type$param1
+DEFVAR	LF@$type$param2
+TYPE	LF@$type$param1	LF@param1
+TYPE	LF@$type$param2	LF@param2
+JUMPIFNEQ	$fun$ord$error	LF@$type$param1	string@string
+JUMPIFNEQ	$fun$ord$error	LF@$type$param2	string@int
+JUMP	$fun$ord$next$check
+LABEL	$fun$ord$error
+JUMPIFEQ	$fun$ord$floattoint	LF@$type$param2	string@float
+EXIT	int@4
+LABEL	$fun$ord$floattoint
+FLOAT2INT	LF@param2	LF@param2
+LABEL	$fun$ord$next$check
+DEFVAR	LF@$fun$ord$tmp0
+DEFVAR	LF@$fun$ord$tmp1
+DEFVAR	LF@$fun$ord$tmp2
+STRLEN	LF@$fun$ord$tmp2	LF@param1
+SUB	LF@$fun$ord$tmp2	LF@$fun$ord$tmp2	int@1
+LT	LF@$fun$ord$tmp0	LF@param2	int@0
+GT	LF@$fun$ord$tmp1	LF@param2	LF@$fun$ord$tmp2
+OR	LF@$fun$ord$tmp0	LF@$fun$ord$tmp0	LF@$fun$ord$tmp1
+JUMPIFEQ	$fun$ord$return$nil	LF@$fun$ord$tmp0	bool@true
+GETCHAR	LF@%retval	LF@param1	LF@param2
+STRI2INT	LF@%retval	LF@%retval	int@0
+LABEL	$fun$ord$return$nil
+POPFRAME
+RETURN
+LABEL	$fun$chr
+PUSHFRAME
+DEFVAR	LF@%retval
+DEFVAR	LF@param1
+MOVE	LF@%retval	nil@nil
+MOVE	LF@param1	LF@%1
+DEFVAR	LF@$type$param1
+TYPE	LF@$type$param1	LF@param1
+JUMPIFEQ	$fun$chr$continue	LF@$type$param1	string@int
+JUMPIFEQ	$fun$chr$floattoint$continue	LF@$type$param1	string@float
+EXIT	int@4
+LABEL	$fun$chr$floattoint$continue
+FLOAT2INT	LF@param1	LF@param1
+LABEL	$fun$chr$continue
+DEFVAR	LF@$fun$chr$tmp$0
+GT	LF@$fun$chr$tmp$0	LF@param1	int@-1
+LT	LF@$type$param1	LF@param1	int@256
+AND	LF@$fun$chr$tmp$0	LF@$fun$chr$tmp$0	LF@$type$param1
+JUMPIFEQ	$fun$chr$continue$continue	LF@$fun$chr$tmp$0	bool@true
+EXIT	int@4
+LABEL	$fun$chr$continue$continue
+INT2CHAR	LF@%retval	LF@param1
+POPFRAME
+RETURN
+LABEL	$$main
+POPFRAME

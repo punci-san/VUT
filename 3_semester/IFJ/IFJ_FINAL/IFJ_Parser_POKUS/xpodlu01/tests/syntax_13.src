@@ -1,0 +1,17 @@
+# Condition without else
+
+ 
+ a = 5
+
+ 
+   if a > 4 then
+
+   if a < 7 then
+   
+   if a == 5 then 
+   else
+   end
+   else
+   end
+   end
+

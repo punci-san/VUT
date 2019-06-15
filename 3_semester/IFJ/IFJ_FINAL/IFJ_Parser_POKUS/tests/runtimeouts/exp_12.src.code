@@ -1,0 +1,485 @@
+.IFJcode18
+CREATEFRAME
+PUSHFRAME
+DEFVAR	LF@_a_A__Aa
+MOVE	LF@_a_A__Aa	nil@nil
+MOVE	LF@_a_A__Aa	float@0x1.3178d4p+3
+DEFVAR	LF@b
+MOVE	LF@b	nil@nil
+MOVE	LF@b	int@321
+DEFVAR	LF@$tmp0
+MOVE	LF@$tmp0	nil@nil
+MOVE	LF@$tmp0	LF@_a_A__Aa
+DEFVAR	LF@$tmp1
+MOVE	LF@$tmp1	nil@nil
+MOVE	LF@$tmp1	LF@b
+DEFVAR	LF@$tmp2
+MOVE	LF@$tmp2	nil@nil
+DEFVAR	LF@$tmp3
+MOVE	LF@$tmp3	nil@nil
+DEFVAR	LF@$tmp4
+MOVE	LF@$tmp4	nil@nil
+TYPE	LF@$tmp3	LF@$tmp0
+TYPE	LF@$tmp4	LF@$tmp1
+JUMPIFEQ	$label$second$intfloat$check$minusmultiply$0 	LF@$tmp3	string@int
+JUMPIFEQ	$label$second$floatint$check$minusmultiply$0 	LF@$tmp3	string@float
+EXIT	int@4
+LABEL	$label$second$intfloat$check$minusmultiply$0 
+JUMPIFEQ	$label$submul$minusmultiply$0 	LF@$tmp4	string@int
+JUMPIFEQ	$label$first$inttofloat$minusmultiply$0 	LF@$tmp4	string@float
+EXIT	int@4
+LABEL	$label$second$floatint$check$minusmultiply$0 
+JUMPIFEQ	$label$submul$minusmultiply$0 	LF@$tmp4	string@float
+JUMPIFEQ	$label$second$inttofloat$minusmultiply$0 	LF@$tmp4	string@int
+EXIT	int@4
+LABEL	$label$first$inttofloat$minusmultiply$0 
+INT2FLOAT	LF@$tmp0	LF@$tmp0
+JUMP	$label$submul$minusmultiply$0 
+LABEL	$label$second$inttofloat$minusmultiply$0 
+INT2FLOAT	LF@$tmp1	LF@$tmp1
+LABEL	$label$submul$minusmultiply$0 
+MUL	LF@$tmp2	LF@$tmp0	LF@$tmp1
+DEFVAR	LF@$tmp6
+MOVE	LF@$tmp6	nil@nil
+MOVE	LF@$tmp6	LF@_a_A__Aa
+DEFVAR	LF@$tmp7
+MOVE	LF@$tmp7	nil@nil
+MOVE	LF@$tmp7	int@5
+DEFVAR	LF@$tmp8
+MOVE	LF@$tmp8	nil@nil
+DEFVAR	LF@$tmp9
+MOVE	LF@$tmp9	nil@nil
+DEFVAR	LF@$tmp10
+MOVE	LF@$tmp10	nil@nil
+TYPE	LF@$tmp9	LF@$tmp6
+TYPE	LF@$tmp10	LF@$tmp7
+JUMPIFEQ	$label$second$intfloat$check$divide$6 	LF@$tmp9	string@int
+JUMPIFEQ	$label$second$floatint$check$divide$6 	LF@$tmp9	string@float
+EXIT	int@4
+LABEL	$label$second$intfloat$check$divide$6 
+JUMPIFEQ	$label$idiv$divide$6 	LF@$tmp10	string@int
+JUMPIFEQ	$label$first$inttofloat$divide$6 	LF@$tmp10	string@float
+EXIT	int@4
+LABEL	$label$second$floatint$check$divide$6 
+JUMPIFEQ	$label$div$divide$6 	LF@$tmp10	string@float
+JUMPIFEQ	$label$second$inttofloat$divide$6 	LF@$tmp10	string@int
+EXIT	int@4
+LABEL	$label$first$inttofloat$divide$6 
+INT2FLOAT	LF@$tmp6	LF@$tmp6
+JUMP	$label$div$divide$6 
+LABEL	$label$second$inttofloat$divide$6 
+INT2FLOAT	LF@$tmp7	LF@$tmp7
+JUMP	$label$div$divide$6 
+LABEL	$label$idiv$divide$6 
+JUMPIFNEQ	$label$idiv$continue$divide$6 	LF@$tmp7	int@0
+EXIT	int@9
+LABEL	$label$idiv$continue$divide$6 
+IDIV	LF@$tmp8	LF@$tmp6	LF@$tmp7
+JUMP	$label$end$divide$6 
+LABEL	$label$div$divide$6 
+JUMPIFNEQ	$label$div$continue$divide$6 	LF@$tmp7	float@0x0p+0
+EXIT	int@9
+LABEL	$label$div$continue$divide$6 
+DIV	LF@$tmp8	LF@$tmp6	LF@$tmp7
+LABEL	$label$end$divide$6 
+DEFVAR	LF@$tmp12
+MOVE	LF@$tmp12	nil@nil
+MOVE	LF@$tmp12	LF@$tmp2
+DEFVAR	LF@$tmp13
+MOVE	LF@$tmp13	nil@nil
+MOVE	LF@$tmp13	LF@$tmp8
+DEFVAR	LF@$tmp14
+MOVE	LF@$tmp14	nil@nil
+DEFVAR	LF@$tmp15
+MOVE	LF@$tmp15	nil@nil
+DEFVAR	LF@$tmp16
+MOVE	LF@$tmp16	nil@nil
+TYPE	LF@$tmp15	LF@$tmp12
+TYPE	LF@$tmp16	LF@$tmp13
+JUMPIFEQ	$label$second$intfloat$check$minusmultiply$12 	LF@$tmp15	string@int
+JUMPIFEQ	$label$second$floatint$check$minusmultiply$12 	LF@$tmp15	string@float
+EXIT	int@4
+LABEL	$label$second$intfloat$check$minusmultiply$12 
+JUMPIFEQ	$label$submul$minusmultiply$12 	LF@$tmp16	string@int
+JUMPIFEQ	$label$first$inttofloat$minusmultiply$12 	LF@$tmp16	string@float
+EXIT	int@4
+LABEL	$label$second$floatint$check$minusmultiply$12 
+JUMPIFEQ	$label$submul$minusmultiply$12 	LF@$tmp16	string@float
+JUMPIFEQ	$label$second$inttofloat$minusmultiply$12 	LF@$tmp16	string@int
+EXIT	int@4
+LABEL	$label$first$inttofloat$minusmultiply$12 
+INT2FLOAT	LF@$tmp12	LF@$tmp12
+JUMP	$label$submul$minusmultiply$12 
+LABEL	$label$second$inttofloat$minusmultiply$12 
+INT2FLOAT	LF@$tmp13	LF@$tmp13
+LABEL	$label$submul$minusmultiply$12 
+SUB	LF@$tmp14	LF@$tmp12	LF@$tmp13
+DEFVAR	LF@$tmp18
+MOVE	LF@$tmp18	nil@nil
+MOVE	LF@$tmp18	LF@$tmp14
+DEFVAR	LF@$tmp19
+MOVE	LF@$tmp19	nil@nil
+MOVE	LF@$tmp19	int@2
+DEFVAR	LF@$tmp20
+MOVE	LF@$tmp20	nil@nil
+DEFVAR	LF@$tmp21
+MOVE	LF@$tmp21	nil@nil
+DEFVAR	LF@$tmp22
+MOVE	LF@$tmp22	nil@nil
+TYPE	LF@$tmp21	LF@$tmp18
+TYPE	LF@$tmp22	LF@$tmp19
+JUMPIFEQ	$label$second$string$check$plus$18 	LF@$tmp21	string@string
+JUMPIFEQ	$label$second$intfloat$check$plus$18 	LF@$tmp21	string@int
+JUMPIFEQ	$label$second$floatint$check$plus$18 	LF@$tmp21	string@float
+EXIT	int@4
+LABEL	$label$second$string$check$plus$18 
+JUMPIFEQ	$label$concat$plus$18 	LF@$tmp22	string@string
+EXIT	int@4
+LABEL	$label$second$intfloat$check$plus$18 
+JUMPIFEQ	$label$add$plus$18 	LF@$tmp22	string@int
+JUMPIFEQ	$label$firsttofloat$plus$18 	LF@$tmp22	string@float
+EXIT	int@4
+LABEL	$label$second$floatint$check$plus$18 
+JUMPIFEQ	$label$add$plus$18 	LF@$tmp22	string@float
+JUMPIFEQ	$label$secondtofloat$plus$18 	LF@$tmp22	string@int
+EXIT	int@4
+LABEL	$label$concat$plus$18 
+CONCAT	LF@$tmp20	LF@$tmp18	LF@$tmp19
+JUMP	$label$end$plus$18 
+LABEL	$label$firsttofloat$plus$18 
+INT2FLOAT	LF@$tmp18	LF@$tmp18
+JUMP	$label$add$plus$18 
+LABEL	$label$secondtofloat$plus$18 
+INT2FLOAT	LF@$tmp19	LF@$tmp19
+LABEL	$label$add$plus$18 
+ADD	LF@$tmp20	LF@$tmp18	LF@$tmp19
+LABEL	$label$end$plus$18 
+DEFVAR	LF@$tmp24
+MOVE	LF@$tmp24	nil@nil
+MOVE	LF@$tmp24	LF@_a_A__Aa
+DEFVAR	LF@$tmp25
+MOVE	LF@$tmp25	nil@nil
+MOVE	LF@$tmp25	LF@b
+DEFVAR	LF@$tmp26
+MOVE	LF@$tmp26	nil@nil
+DEFVAR	LF@$tmp27
+MOVE	LF@$tmp27	nil@nil
+DEFVAR	LF@$tmp28
+MOVE	LF@$tmp28	nil@nil
+TYPE	LF@$tmp27	LF@$tmp24
+TYPE	LF@$tmp28	LF@$tmp25
+JUMPIFEQ	$label$second$intfloat$check$minusmultiply$24 	LF@$tmp27	string@int
+JUMPIFEQ	$label$second$floatint$check$minusmultiply$24 	LF@$tmp27	string@float
+EXIT	int@4
+LABEL	$label$second$intfloat$check$minusmultiply$24 
+JUMPIFEQ	$label$submul$minusmultiply$24 	LF@$tmp28	string@int
+JUMPIFEQ	$label$first$inttofloat$minusmultiply$24 	LF@$tmp28	string@float
+EXIT	int@4
+LABEL	$label$second$floatint$check$minusmultiply$24 
+JUMPIFEQ	$label$submul$minusmultiply$24 	LF@$tmp28	string@float
+JUMPIFEQ	$label$second$inttofloat$minusmultiply$24 	LF@$tmp28	string@int
+EXIT	int@4
+LABEL	$label$first$inttofloat$minusmultiply$24 
+INT2FLOAT	LF@$tmp24	LF@$tmp24
+JUMP	$label$submul$minusmultiply$24 
+LABEL	$label$second$inttofloat$minusmultiply$24 
+INT2FLOAT	LF@$tmp25	LF@$tmp25
+LABEL	$label$submul$minusmultiply$24 
+MUL	LF@$tmp26	LF@$tmp24	LF@$tmp25
+DEFVAR	LF@$tmp30
+MOVE	LF@$tmp30	nil@nil
+MOVE	LF@$tmp30	LF@$tmp20
+DEFVAR	LF@$tmp31
+MOVE	LF@$tmp31	nil@nil
+MOVE	LF@$tmp31	LF@$tmp26
+DEFVAR	LF@$tmp32
+MOVE	LF@$tmp32	nil@nil
+DEFVAR	LF@$tmp33
+MOVE	LF@$tmp33	nil@nil
+DEFVAR	LF@$tmp34
+MOVE	LF@$tmp34	nil@nil
+TYPE	LF@$tmp33	LF@$tmp30
+TYPE	LF@$tmp34	LF@$tmp31
+JUMPIFEQ	$label$second$string$check$plus$30 	LF@$tmp33	string@string
+JUMPIFEQ	$label$second$intfloat$check$plus$30 	LF@$tmp33	string@int
+JUMPIFEQ	$label$second$floatint$check$plus$30 	LF@$tmp33	string@float
+EXIT	int@4
+LABEL	$label$second$string$check$plus$30 
+JUMPIFEQ	$label$concat$plus$30 	LF@$tmp34	string@string
+EXIT	int@4
+LABEL	$label$second$intfloat$check$plus$30 
+JUMPIFEQ	$label$add$plus$30 	LF@$tmp34	string@int
+JUMPIFEQ	$label$firsttofloat$plus$30 	LF@$tmp34	string@float
+EXIT	int@4
+LABEL	$label$second$floatint$check$plus$30 
+JUMPIFEQ	$label$add$plus$30 	LF@$tmp34	string@float
+JUMPIFEQ	$label$secondtofloat$plus$30 	LF@$tmp34	string@int
+EXIT	int@4
+LABEL	$label$concat$plus$30 
+CONCAT	LF@$tmp32	LF@$tmp30	LF@$tmp31
+JUMP	$label$end$plus$30 
+LABEL	$label$firsttofloat$plus$30 
+INT2FLOAT	LF@$tmp30	LF@$tmp30
+JUMP	$label$add$plus$30 
+LABEL	$label$secondtofloat$plus$30 
+INT2FLOAT	LF@$tmp31	LF@$tmp31
+LABEL	$label$add$plus$30 
+ADD	LF@$tmp32	LF@$tmp30	LF@$tmp31
+LABEL	$label$end$plus$30 
+DEFVAR	LF@$tmp36
+MOVE	LF@$tmp36	nil@nil
+MOVE	LF@$tmp36	LF@_a_A__Aa
+DEFVAR	LF@$tmp37
+MOVE	LF@$tmp37	nil@nil
+MOVE	LF@$tmp37	LF@b
+DEFVAR	LF@$tmp38
+MOVE	LF@$tmp38	nil@nil
+DEFVAR	LF@$tmp39
+MOVE	LF@$tmp39	nil@nil
+DEFVAR	LF@$tmp40
+MOVE	LF@$tmp40	nil@nil
+TYPE	LF@$tmp39	LF@$tmp36
+TYPE	LF@$tmp40	LF@$tmp37
+JUMPIFEQ	$label$second$intfloat$check$divide$36 	LF@$tmp39	string@int
+JUMPIFEQ	$label$second$floatint$check$divide$36 	LF@$tmp39	string@float
+EXIT	int@4
+LABEL	$label$second$intfloat$check$divide$36 
+JUMPIFEQ	$label$idiv$divide$36 	LF@$tmp40	string@int
+JUMPIFEQ	$label$first$inttofloat$divide$36 	LF@$tmp40	string@float
+EXIT	int@4
+LABEL	$label$second$floatint$check$divide$36 
+JUMPIFEQ	$label$div$divide$36 	LF@$tmp40	string@float
+JUMPIFEQ	$label$second$inttofloat$divide$36 	LF@$tmp40	string@int
+EXIT	int@4
+LABEL	$label$first$inttofloat$divide$36 
+INT2FLOAT	LF@$tmp36	LF@$tmp36
+JUMP	$label$div$divide$36 
+LABEL	$label$second$inttofloat$divide$36 
+INT2FLOAT	LF@$tmp37	LF@$tmp37
+JUMP	$label$div$divide$36 
+LABEL	$label$idiv$divide$36 
+JUMPIFNEQ	$label$idiv$continue$divide$36 	LF@$tmp37	int@0
+EXIT	int@9
+LABEL	$label$idiv$continue$divide$36 
+IDIV	LF@$tmp38	LF@$tmp36	LF@$tmp37
+JUMP	$label$end$divide$36 
+LABEL	$label$div$divide$36 
+JUMPIFNEQ	$label$div$continue$divide$36 	LF@$tmp37	float@0x0p+0
+EXIT	int@9
+LABEL	$label$div$continue$divide$36 
+DIV	LF@$tmp38	LF@$tmp36	LF@$tmp37
+LABEL	$label$end$divide$36 
+DEFVAR	LF@$tmp42
+MOVE	LF@$tmp42	nil@nil
+MOVE	LF@$tmp42	LF@$tmp32
+DEFVAR	LF@$tmp43
+MOVE	LF@$tmp43	nil@nil
+MOVE	LF@$tmp43	LF@$tmp38
+DEFVAR	LF@$tmp44
+MOVE	LF@$tmp44	nil@nil
+DEFVAR	LF@$tmp45
+MOVE	LF@$tmp45	nil@nil
+DEFVAR	LF@$tmp46
+MOVE	LF@$tmp46	nil@nil
+TYPE	LF@$tmp45	LF@$tmp42
+TYPE	LF@$tmp46	LF@$tmp43
+JUMPIFEQ	$label$second$string$check$plus$42 	LF@$tmp45	string@string
+JUMPIFEQ	$label$second$intfloat$check$plus$42 	LF@$tmp45	string@int
+JUMPIFEQ	$label$second$floatint$check$plus$42 	LF@$tmp45	string@float
+EXIT	int@4
+LABEL	$label$second$string$check$plus$42 
+JUMPIFEQ	$label$concat$plus$42 	LF@$tmp46	string@string
+EXIT	int@4
+LABEL	$label$second$intfloat$check$plus$42 
+JUMPIFEQ	$label$add$plus$42 	LF@$tmp46	string@int
+JUMPIFEQ	$label$firsttofloat$plus$42 	LF@$tmp46	string@float
+EXIT	int@4
+LABEL	$label$second$floatint$check$plus$42 
+JUMPIFEQ	$label$add$plus$42 	LF@$tmp46	string@float
+JUMPIFEQ	$label$secondtofloat$plus$42 	LF@$tmp46	string@int
+EXIT	int@4
+LABEL	$label$concat$plus$42 
+CONCAT	LF@$tmp44	LF@$tmp42	LF@$tmp43
+JUMP	$label$end$plus$42 
+LABEL	$label$firsttofloat$plus$42 
+INT2FLOAT	LF@$tmp42	LF@$tmp42
+JUMP	$label$add$plus$42 
+LABEL	$label$secondtofloat$plus$42 
+INT2FLOAT	LF@$tmp43	LF@$tmp43
+LABEL	$label$add$plus$42 
+ADD	LF@$tmp44	LF@$tmp42	LF@$tmp43
+LABEL	$label$end$plus$42 
+DEFVAR	LF@c
+MOVE	LF@c	nil@nil
+MOVE	LF@c	LF@$tmp44
+JUMP	$$main
+LABEL	$fun$inputs
+PUSHFRAME
+DEFVAR	LF@%retval
+MOVE	LF@%retval	nil@nil
+READ	LF@%retval	string
+POPFRAME
+RETURN
+LABEL	$fun$inputi
+PUSHFRAME
+DEFVAR	LF@%retval
+MOVE	LF@%retval	nil@nil
+READ	LF@%retval	int
+POPFRAME
+RETURN
+LABEL	$fun$inputf
+PUSHFRAME
+DEFVAR	LF@%retval
+MOVE	LF@%retval	nil@nil
+READ	LF@%retval	float
+POPFRAME
+RETURN
+LABEL	$fun$print
+PUSHFRAME
+DEFVAR	LF@%retval
+MOVE	LF@%retval	nil@nil
+DEFVAR	LF@param1
+MOVE	LF@param1	LF@%1
+DEFVAR	LF@param2
+MOVE	LF@param2	nil@nil
+LABEL	$fun$print$loop
+JUMPIFEQ	$fun$print$end	LF@param1	int@0
+POPS	LF@param2
+WRITE	LF@param2
+SUB	LF@param1	LF@param1	int@1
+JUMP	$fun$print$loop
+LABEL	$fun$print$end
+CLEARS
+POPFRAME
+RETURN
+LABEL	$fun$length
+PUSHFRAME
+DEFVAR	LF@%retval
+MOVE	LF@%retval	nil@nil
+DEFVAR	LF@param1
+MOVE	LF@param1	LF@%1
+DEFVAR	LF@param2
+TYPE	LF@param2	LF@param1
+JUMPIFEQ	$fun$length$strlen	LF@param2	string@string
+EXIT	int@4
+LABEL	$fun$length$strlen
+STRLEN	LF@%retval	LF@param1
+POPFRAME
+RETURN
+LABEL	$fun$substr
+PUSHFRAME
+DEFVAR	LF@%retval
+DEFVAR	LF@param1
+DEFVAR	LF@param2
+DEFVAR	LF@param3
+MOVE	LF@%retval	string@
+MOVE	LF@param1	LF@%1
+MOVE	LF@param2	LF@%2
+MOVE	LF@param3	LF@%3
+DEFVAR	LF@$type$param1
+DEFVAR	LF@$type$param2
+DEFVAR	LF@$type$param3
+TYPE	LF@$type$param1	LF@param1
+LABEL	$fun$substr$again$check
+TYPE	LF@$type$param2	LF@param2
+TYPE	LF@$type$param3	LF@param3
+JUMPIFNEQ	$fun$substr$error	LF@$type$param1	string@string
+JUMPIFNEQ	$fun$substr$error	LF@$type$param2	string@int
+JUMPIFNEQ	$fun$substr$error	LF@$type$param3	string@int
+JUMP	$fun$substr$next$check
+LABEL	$fun$substr$error
+JUMPIFEQ	$fun$substr$floattoint$first	LF@$type$param2	string@float
+JUMPIFEQ	$fun$substr$floattoint$second	LF@$type$param3	string@float
+JUMPIFEQ	$fun$substr$next$check	LF@$type$param3	string@int
+EXIT	int@4
+LABEL	$fun$substr$floattoint$first
+FLOAT2INT	LF@param2	LF@param2
+JUMP	$fun$substr$again$check
+LABEL	$fun$substr$floattoint$second
+FLOAT2INT	LF@param3	LF@param3
+LABEL	$fun$substr$next$check
+DEFVAR	LF@$fun$substr$tmp0
+DEFVAR	LF@$fun$substr$tmp1
+DEFVAR	LF@$fun$substr$tmp2
+DEFVAR	LF@$fun$substr$tmp3
+STRLEN	LF@$fun$substr$tmp2	LF@param1
+LT	LF@$fun$substr$tmp0	LF@param2	int@0
+GT	LF@$fun$substr$tmp1	LF@param2	LF@$fun$substr$tmp2
+OR	LF@$fun$substr$tmp3	LF@$fun$substr$tmp0	LF@$fun$substr$tmp1
+JUMPIFEQ	$fun$substr$return$nil	LF@$fun$substr$tmp3	bool@true
+ADD	LF@param3	LF@param2	LF@param3
+GT	LF@$fun$substr$tmp0	LF@param3	LF@$fun$substr$tmp2
+JUMPIFEQ	$fun$substr$loop	LF@$fun$substr$tmp0	bool@false
+MOVE	LF@param3	LF@$fun$substr$tmp2
+LABEL	$fun$substr$loop
+JUMPIFEQ	$fun$substr$return	LF@param2	LF@param3
+GETCHAR	LF@$fun$substr$tmp0	LF@param1	LF@param2
+CONCAT	LF@%retval	LF@%retval	LF@$fun$substr$tmp0
+ADD	LF@param2	LF@param2	int@1
+JUMP	$fun$substr$loop
+LABEL	$fun$substr$return$nil
+MOVE	LF@%retval	nil@nil
+LABEL	$fun$substr$return
+POPFRAME
+RETURN
+LABEL	$fun$ord
+PUSHFRAME
+DEFVAR	LF@%retval
+DEFVAR	LF@param1
+DEFVAR	LF@param2
+MOVE	LF@%retval	nil@nil
+MOVE	LF@param1	LF@%1
+MOVE	LF@param2	LF@%2
+DEFVAR	LF@$type$param1
+DEFVAR	LF@$type$param2
+TYPE	LF@$type$param1	LF@param1
+TYPE	LF@$type$param2	LF@param2
+JUMPIFNEQ	$fun$ord$error	LF@$type$param1	string@string
+JUMPIFNEQ	$fun$ord$error	LF@$type$param2	string@int
+JUMP	$fun$ord$next$check
+LABEL	$fun$ord$error
+JUMPIFEQ	$fun$ord$floattoint	LF@$type$param2	string@float
+EXIT	int@4
+LABEL	$fun$ord$floattoint
+FLOAT2INT	LF@param2	LF@param2
+LABEL	$fun$ord$next$check
+DEFVAR	LF@$fun$ord$tmp0
+DEFVAR	LF@$fun$ord$tmp1
+DEFVAR	LF@$fun$ord$tmp2
+STRLEN	LF@$fun$ord$tmp2	LF@param1
+SUB	LF@$fun$ord$tmp2	LF@$fun$ord$tmp2	int@1
+LT	LF@$fun$ord$tmp0	LF@param2	int@0
+GT	LF@$fun$ord$tmp1	LF@param2	LF@$fun$ord$tmp2
+OR	LF@$fun$ord$tmp0	LF@$fun$ord$tmp0	LF@$fun$ord$tmp1
+JUMPIFEQ	$fun$ord$return$nil	LF@$fun$ord$tmp0	bool@true
+GETCHAR	LF@%retval	LF@param1	LF@param2
+STRI2INT	LF@%retval	LF@%retval	int@0
+LABEL	$fun$ord$return$nil
+POPFRAME
+RETURN
+LABEL	$fun$chr
+PUSHFRAME
+DEFVAR	LF@%retval
+DEFVAR	LF@param1
+MOVE	LF@%retval	nil@nil
+MOVE	LF@param1	LF@%1
+DEFVAR	LF@$type$param1
+TYPE	LF@$type$param1	LF@param1
+JUMPIFEQ	$fun$chr$continue	LF@$type$param1	string@int
+JUMPIFEQ	$fun$chr$floattoint$continue	LF@$type$param1	string@float
+EXIT	int@4
+LABEL	$fun$chr$floattoint$continue
+FLOAT2INT	LF@param1	LF@param1
+LABEL	$fun$chr$continue
+DEFVAR	LF@$fun$chr$tmp$0
+GT	LF@$fun$chr$tmp$0	LF@param1	int@-1
+LT	LF@$type$param1	LF@param1	int@256
+AND	LF@$fun$chr$tmp$0	LF@$fun$chr$tmp$0	LF@$type$param1
+JUMPIFEQ	$fun$chr$continue$continue	LF@$fun$chr$tmp$0	bool@true
+EXIT	int@4
+LABEL	$fun$chr$continue$continue
+INT2CHAR	LF@%retval	LF@param1
+POPFRAME
+RETURN
+LABEL	$$main
+POPFRAME

@@ -1,0 +1,35 @@
+0:note1_deleted: neuvazuje smazany soubor (posledni)
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi greeting.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi greeting.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi . <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,10 +1,19 @@
+#    spusten editor s: /.sanitized./ahoj.c (hash 8c686a5)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./ahoj.c (hash 8c686a5)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./greeting.c (hash 1bcbc11)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./ahoj.c (hash 8c686a5)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./greeting.c (hash 1bcbc11)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   -spusten editor s: /.sanitized./greeting.c (hash 1bcbc11)
+#   +Ziadne subory vo wedirc
+#   +Log neobsahuje ziadny subory v /.sanitized..

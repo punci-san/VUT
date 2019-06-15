@@ -1,0 +1,5 @@
+a = "string"
+b = 1
+c = 2.3
+substr a, b, c
+

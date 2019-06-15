@@ -1,0 +1,40 @@
+1		: BUS			: start
+2		: BUS			: arrival
+3		: BUS			: depart
+4		: RID 1		: start
+5		: RID 2		: start
+6		: RID 2		: enter: 2
+7		: RID 3		: start
+8		: RID 5		: start
+9		: RID 4		: start
+10		: RID 1		: enter: 4
+11		: BUS			: end
+12		: BUS			: arrival
+13		: BUS			: start boarding: 4
+14		: RID 2		: boarding
+15		: RID 5		: enter: 4
+16		: RID 3		: enter: 4
+17		: RID 1		: boarding
+18		: BUS			: end boarding: 2
+19		: BUS			: depart
+20		: RID 4		: enter: 3
+21		: BUS			: end
+22		: RID 2		: finish
+23		: RID 1		: finish
+24		: BUS			: arrival
+25		: BUS			: start boarding: 3
+26		: RID 5		: boarding
+27		: RID 3		: boarding
+28		: BUS			: end boarding: 1
+29		: BUS			: depart
+30		: BUS			: end
+31		: RID 5		: finish
+32		: RID 3		: finish
+33		: BUS			: arrival
+34		: BUS			: start boarding: 1
+35		: RID 4		: boarding
+36		: BUS			: end boarding: 0
+37		: BUS			: depart
+38		: BUS			: end
+39		: RID 4		: finish
+40		: BUS			: finish

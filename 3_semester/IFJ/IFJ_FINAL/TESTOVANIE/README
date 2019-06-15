@@ -1,0 +1,29 @@
+POZOR vyžaduje spustitelný soubor s názvem "KOMP"
+POZOR testovací vstupy jsou *.txt soubory
+
+porjekt_tester.sh	spouští všechny skripty zaspané v souboru "./testy"
+			musí se spouštět z kořenové složky projektu
+
+mazaclogu.sh		postě smaže bordel
+
+složky:		testiky --- obsahují testovací vstupy pro spuštění a výsledek bude spuštěn v interpretru
+			    Vstupy musí obsahovat "###retval='ocekava_navratova_hodnota'"
+			    Vstupy mohou obsahovat "###interpretr='ocekava_navratova_hodnota_interpretru'"
+
+			    obsahuje skript pro kompilaci
+		
+		testiky_bad --- obsahují špatné testovací vstupy 
+				Vstupy mohou obsahovat "###retval='ocekava_navratova_hodnota'"
+			 
+		testiky_ok --- obsahují dobré testovací vstupy 
+
+
+každá složka obsahuje generator.sh který vygeneruje skripty a zapíše je do ./testy
+
+
+výstupy se generují do složek do nových složek s názvem testu
+
+
+souhrnné logy se generují do ./logy a to kopii výstupu z terminálu a html stránku projekt.html
+
+

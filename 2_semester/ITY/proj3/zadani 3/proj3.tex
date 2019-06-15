@@ -1,0 +1,60 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=2cm, text={17cm, 24cm}, top=3cm]{geometry}
+\usepackage[czech]{babel}
+\usepackage[IL2]{fontenc}
+\usepackage{tabbing}
+
+
+\begin{document}
+\begin{titlepage}
+
+\thispagestyle{empty}
+\begin{center}
+\Huge
+\textsc{Fakulta informačních technologií}\hspace{0.4em}\\
+\textsc{Vysoké učení technické v Brně}\hspace{0.4em}\\
+\vspace{\stretch{0.382}}
+\LARGE{ Typografie a publikování – 3. projekt \hspace{0.3em}}\\
+\Huge {Tabulky a obrázky}\hspace{0.3em}\\
+\vspace{\stretch{0.618}}
+\end{center}
+\Large{31.03.2018 \hfill
+Matúš Škuta (xskuta04)}
+\end{titlepage}
+
+
+Pro sázení tabulek můžeme použít buď prostředí tabbing nebo prostředí tabular.
+Prostředí tabbing
+Při použití tabbing vypadá tabulka následovně:
+
+Toto prostředí se dá také použít pro sázení algoritmů, ovšem vhodnější je použít
+prostředí algorithm nebo algorithm2e (viz sekce 3).
+
+Další možností, jak vytvořit tabulku, je použít prostředí tabular. Tabulky pak
+budou vypadat takto:
+
+Pokud budeme chtít vysázet algoritmus, můžeme použít prostředí algorithm nebo algorithm2e.
+Příklad použití prostředí algorithm2e viz Algoritmus 1.
+
+Kdyby byl problem s cline, zkuste se podívat třeba sem:
+http://www.abclinuxu.cz/tex/poradna/show/325037
+
+Pro nápovědu, jak zacházet s prostředím algorithm, můžeme zkusit tuhle stránku:
+http://ftp.cstug.cz/pub/tex/CTAN/macros/latex/contrib/algorithms/algorithms.pdf.
+Pro algorithm2e zase tuhle:
+http://ftp.cstug.cz/pub/tex/CTAN/macros/latex/contrib/algorithm2e/algorithm2e.pdf.
+
+Do našich článků můžeme samozřejmě vkládat obrázky. Pokud je obrázkem fotografie,
+můžeme klidně použít bitmapový soubor. Pokud by to ale mělo být nějaké schéma nebo
+něco podobného, je dobrým zvykem takovýto obrázek vytvořit vektorově.
+
+Odkazy (nejen ty) na obrázky 1, 2 a 3, na
+tabulky 1 a 2 a také na algoritmus 1 jsou udělány pomocí
+křížových odkazů. Pak je ovšem potřeba zdrojový soubor přeložit dvakrát.
+Vektorové obrázky lze vytvořit i přímo v LATEXu, například pomocí prostředí
+picture. Všechny rozměry jsou uváděny v mm.
+
+
+
+\end{document}

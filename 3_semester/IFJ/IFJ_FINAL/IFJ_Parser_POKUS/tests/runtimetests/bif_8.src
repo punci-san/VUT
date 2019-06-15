@@ -1,0 +1,4 @@
+a = "string"
+b = 1
+c = 2
+chr(a)

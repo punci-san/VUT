@@ -1,0 +1,11 @@
+def hello(n)
+  if n < 5 then
+    print "Hello world."
+  else
+    print "Not so hello world!"
+  end
+end
+
+hello(4)
+
+hello 8

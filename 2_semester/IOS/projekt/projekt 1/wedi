@@ -1,0 +1,474 @@
+#!/bin/sh
+
+#variables
+POSIXLY_CORRECT=yes # settings that needs to be here
+OPENING_TOOL="vi"   # default editor
+DIR=`pwd`           # default directory
+FILE='empty'        # default empty
+LOOKDATE=0          # default 0
+
+#functions
+# list all files in selected directory before chosen date
+list_file_before_date_in_dir()
+{
+  # transform YEAR-MONTH-DAY to YEARMONTHDATE
+  LOOKDATE=`echo "$LOOKDATE" | cut -d '-' -f1``echo "$LOOKDATE" | cut -d '-' -f2``echo "$LOOKDATE" | cut -d '-' -f3`
+  # Contains only lines that are equal to $DIR
+  LIST=`cat $WEDI_RC | grep "$DIR "`
+  # $LIST contains anything ?
+  if [ -z "$LIST" ]; then
+    # if no then end with errors
+    echo "No files edited in this directory"
+    exit 1
+  fi
+  # print files in subshell
+  FILE=$(echo "$LIST" | \
+  {
+  while read line
+  do
+    LINEDATE=`echo "$line" | cut -d ' ' -f4`
+    LINEDATE=`echo "$LINEDATE" | cut -d '-' -f1``echo "$LINEDATE" | cut -d '-' -f2``echo "$LINEDATE" | cut -d '-' -f3`
+    if [ "$LINEDATE" -lt "$LOOKDATE" ]; then
+      #statements
+      echo ".`echo "$line" | cut -d ' ' -f3`"
+    fi
+  done
+
+  })
+  # check if FILE is empty
+  if [ -z "$FILE" ]; then
+    # If yes then output error, exit
+    echo "No files before $LOOKDATE"
+    exit 1
+  fi
+  # output result of subshell
+  echo "$FILE"
+  exit 0
+}
+
+# print list of files that were edited after given date
+list_file_after_date_in_dir()
+{
+  # Convert YEAR-MONTH-DAY to YEARMONTHDAY
+  FINDDATE=`echo "$LOOKDATE" | cut -d '-' -f1``echo "$LOOKDATE" | cut -d '-' -f2``echo "$LOOKDATE" | cut -d '-' -f3`
+  # Grab everything containing $DIR
+  LIST=`cat $WEDI_RC | grep "$DIR "`
+  # $LIST contains anything ?
+  if [ -z "$LIST" ]; then
+    # No? print error,exit
+    echo "No files edited in this directory"
+    exit 1
+  fi
+  # FIle will contains the result of subshell
+  FILE=$(echo "$LIST" | \
+  {
+  # go through every line
+  while read line
+  do
+    # choose date from current line
+    LINEDATE=`echo "$line" | cut -d ' ' -f4`
+    # Transform date to more suitable format
+    LINEDATE=`echo "$LINEDATE" | cut -d '-' -f1``echo "$LINEDATE" | cut -d '-' -f2``echo "$LINEDATE" | cut -d '-' -f3`
+    # Compare our FINDDATE with our date that we got from current line
+    if [ "$LINEDATE" -gt "$FINDDATE" ]; then
+      # if date on current line is greater than our FINDDATE echo file on line
+      echo ".`echo "$line" | cut -d ' ' -f3`"
+    fi
+  done
+  })
+  # check if FILE is empty
+  if [ -z "$FILE" ]; then
+    # If yes then output error, exit
+    echo "No files after $LOOKDATE"
+    exit 1
+  fi
+  # print the result of subshell
+  echo "$FILE"
+  # exit with no error
+  exit 0
+}
+
+# open chosen file
+open_file_for_editing_in_dir()
+{
+  # choose from link only filename
+  FILE=`echo "$DIR" | rev | cut -d '/' -f1 | rev`
+  # choose from link only path to file
+  DIR=`echo "$DIR" | grep -Po ".*?(?=$FILE)"`
+  # open file with chosen editor
+  $OPENING_TOOL "$DIR$FILE"
+  # check how the last command executed
+  EXITCODE=$?
+  # if there was no error
+  if [ "$EXITCODE" -eq 0 ]; then
+    # last command was succesfull, so update WEDI_RC file
+    update_WEDI_RC_file
+    # Exit is in update_WEDI_RC_file function
+  fi
+  # there was error while opening file with editor return error
+  echo "Problem while opening file in $OPENING_TOOL"
+  exit $EXITCODE
+}
+
+# update WEDI_RC file when file was edited
+update_WEDI_RC_file()
+{
+  # choose from WEDI_RC only 1 line that contains path and file
+  LINE=`cat "$WEDI_RC" | grep "$DIR $FILE"`
+  # Did we found anything ?
+  if [ -z "$LINE" ]; then
+    # no then create log
+    # save current date in given format YEAR-MONTH-DAY
+    CURRDATE=`date +"%Y-%m-%d"`
+    # save current time in given format HOUR-MINUTE-SECOND
+    CURRTIME=`date +"%H:%M:%S"`
+    # create string to be printed into file
+    FILEPRINT="1 $DIR $FILE $CURRDATE $CURRTIME" # times the file was opened, directory containing file, Filename, Date,time
+    # Append string from above to WEDI_RC file
+    echo "$FILEPRINT" >> $WEDI_RC
+    # check if append went succesfully
+    EXITCODE=$?
+    # exit with given exitcode
+    exit $EXITCODE
+  fi
+  # we found the line
+  # save how many times was the file opened
+  LINE=`echo "$LINE" | cut -d ' ' -f1`
+  # increase the number by 1
+  LINE=$(($LINE+1))
+  # create patern for search
+  PATERN="$DIR $FILE"
+  # grab everything except the line containing $PATERN
+  FILEPRINT=`cat "$WEDI_RC" | grep -v "$PATERN"`
+  # rewrite WEDI_RC file with what we grabbed in previous command
+  echo "$FILEPRINT" > "$WEDI_RC"
+  # save current date in given format YEAR-MONTH-DAY
+  CURRDATE=`date +"%Y-%m-%d"`
+  # save current time in given format HOUR:MINUTE:SECOND
+  CURRTIME=`date +"%H:%M:%S"`
+  # create our string that we will append to the end of file
+  FILEPRINT="$LINE $DIR $FILE $CURRDATE $CURRTIME"
+  # append our string to the end of file
+  echo "$FILEPRINT" >> "$WEDI_RC"
+  # check how the append went
+  EXITCODE=$?
+  # exit with given error code
+  exit $EXITCODE
+}
+
+# will list all edited files in chosen directory
+list_edited_files_in_dir()
+{
+  # grab lines which equal to $DIR
+  LIST=`cat $WEDI_RC | grep "$DIR "`
+  # $LIST contains anything ?
+  if [ -z "$LIST" ]; then
+    # no then print error, exit
+    echo "No files edited in this directory"
+    exit 1
+  fi
+  # will contain the result of subshell
+  FILE=$(echo "$LIST" | \
+  {
+    # go through every line
+  while read line
+  do
+    # save only names of file
+    FILE=`echo "$line" | cut -d ' ' -f3`
+    # print .filename
+    echo ".$FILE"
+  done
+
+  })
+  # print result of subshell
+  echo "$FILE"
+  # exit withhout error
+  exit 0
+}
+
+# open file which was edited most times in chosen directory
+open_most_edited_file_in_dir()
+{
+  # contains only lines that contains $DIR
+  LIST=`cat "$WEDI_RC" | grep "$DIR "`
+  # is list empty ?
+  if [ -z "$LIST" ]; then
+    # empty print error, exit
+    echo "No files edited in this directory"
+    exit 1
+  fi
+  # FILE will contain file with highest number of edits
+  FILE=$(echo "$LIST" | \
+  {
+    # file currenlty chosen
+    GOODFILE='empty'
+    # will contain currently highest number of edits
+    NUMBERFILE=0
+    # loop through every line
+    while read line
+    do
+      # cut from current line first part containing number of edits
+      LINENUMBER=`echo "$line" | cut -d ' ' -f1`
+      # choose the highest number through comparison
+      if [ "$NUMBERFILE" -lt "$LINENUMBER" ]; then
+        # save currently highest number
+        NUMBERFILE="$LINENUMBER"
+        # and filename on current line
+        GOODFILE=`echo "$line" | cut -d ' ' -f3`
+      fi
+    done
+    echo "$GOODFILE"
+  })
+
+  if [ "$FILE" = "empty" ]; then
+    # error no files found
+    echo "No files found"
+    exit 1
+  fi
+
+
+  if [ -e "$DIR$FILE" ]; then
+    #statements
+    $OPENING_TOOL "$DIR$FILE"
+    EXITCODE=$?
+
+    if [ "$EXITCODE" = 0 ]; then
+      # everything is good continue save the file
+      update_WEDI_RC_file
+    fi
+    # if not return error without updating WEDI_RC file
+    exit $EXITCODE
+  fi
+  echo "File does not exist"
+  # remove deleted file
+  # select everything except the file that was deleted
+  WEDI_RCCONTENT=`cat "$WEDI_RC" | grep -v "$DIR $FILE"`
+  # rewrite the file
+  echo "$WEDI_RCCONTENT" > "$WEDI_RC"
+  exit 1
+}
+
+open_last_file_in_dir()
+{
+  #using readlink which cuts the last / so adding manually
+  DIR="$DIR"
+  # load files from WEDI_RC inside variable that are in given directory
+  LIST=`cat $WEDI_RC | grep -o "$DIR .*"`
+  # we found nothing return error
+  if [ -z "$LIST" ]; then
+    #statements
+    echo "No files edited in this directory."
+    exit 1
+  fi
+  # save file that is good
+  FILE=$(echo "$LIST" | \
+  {
+    GOODFILE=$DIR
+    GOODDATE="0"
+    while read line
+      do
+        # check
+        LINEDATE=`echo "$line" | cut -d ' ' -f3 | cut -d '-' -f1``echo "$line" | cut -d ' ' -f3 | cut -d '-' -f2``echo "$line" | cut -d ' ' -f3 | cut -d '-' -f3`
+        LINEDATE="$LINEDATE`echo "$line" | cut -d ' ' -f4 | cut -d ':' -f1``echo "$line" | cut -d ' ' -f4 | cut -d ':' -f2``echo "$line" | cut -d ' ' -f4 | cut -d ':' -f3`"
+
+        if [ "$LINEDATE" -gt "$GOODDATE" ]; then
+          #statements
+          GOODDATE="$LINEDATE"
+          GOODFILE=`echo "$line" | cut -d ' ' -f2`
+
+        fi
+      done
+      echo "$GOODFILE"
+  })
+
+  if [ -e "$DIR$FILE" ]; then
+    #statements
+    $OPENING_TOOL "$DIR$FILE"
+    EXITCODE=$?
+
+    if [ "$EXITCODE" = 0 ]; then
+      # everything is good continue save the file
+      update_WEDI_RC_file
+    fi
+    # if not return error without updating WEDI_RC file
+    exit $EXITCODE
+  fi
+  echo "File does not exist"
+  # remove deleted file
+  # select everything except the file that was deleted
+  WEDI_RCCONTENT=`cat "$WEDI_RC" | grep -v "$DIR $FILE"`
+  # rewrite the file
+  echo "$WEDI_RCCONTENT" > "$WEDI_RC"
+  # exit with error
+  exit 1
+}
+
+# Load Config
+#-------------------------------------------------------------------------------
+# check if variable WEDI_RC is set got more than 0b
+if [ -z "$WEDI_RC" ]; then
+  echo "Variable WEDI_RC not set."
+  exit 1
+fi
+# check if wedirc file exist
+if [ ! -e "$WEDI_RC" ]; then
+  # save name of file
+  WEDI_RC_DIRECTORY=`echo $WEDI_RC | rev | cut -d '/' -f1 | rev`
+  WEDI_RC_DIRECTORY=`echo "$WEDI_RC" | grep -Po ".*?(?=$WEDI_RC_DIRECTORY)"`
+  # create missing directory
+  mkdir -p "$WEDI_RC_DIRECTORY"
+  # 
+  WEDI_RC=`readlink -f "$WEDI_RC"`
+  # file does not exist creating new one
+  touch "$WEDI_RC"
+fi
+# check if WEDI_RC file is writable
+if [ ! -w "$WEDI_RC" ]; then
+  # output error,exit
+  echo "File $WEDI_RC is not writable"
+  exit 1
+fi
+# check if WEDI_RC file is readable
+if [ ! -r "$WEDI_RC" ]; then
+  # output error,exit
+  echo "File $WEDI_RC is not readable"
+fi
+# check if EDITOR variable is set
+if [ ! -z "$EDITOR" ]; then
+  # set OPENING_TOOL as $EDITOR
+  OPENING_TOOL=$EDITOR
+# check if VISUAL variable is set
+elif [ ! -z "$VISUAL" ]; then
+  #statements
+  OPENING_TOOL=$VISUAL
+fi
+#-------------------------------------------------------------------------------
+
+# check what type of input was given and act based on it
+#-------------------------------------------------------------------------------
+# check if there are no arguments
+if [ $# -eq 0 ]; then
+  # no arguments open file that was edited last time
+  # use readlink because realpath is not on all linuxes
+  DIR="`readlink -f "$DIR"`/"
+  # call function to open file opened last time
+  open_last_file_in_dir
+# check if there is 1 argument
+elif [ $# -eq 1 ]; then
+  # 1 argument given determinate type
+  # open most edited file in curr directory
+  if [ "$1" = "-m" ]; then
+    # use readlink because realpath is not on all linuxes
+    DIR="`readlink -f "$DIR"`/"
+    # call function
+    open_most_edited_file_in_dir
+  fi
+  # list all edited files in current directory
+  if [ "$1" = "-l" ]; then
+    # use readlink because realpath is not on all linuxes
+    DIR="`readlink -f "$DIR"`/"
+    # call function
+    list_edited_files_in_dir
+    # exit in function
+  fi
+  # check if it is directory
+  if [ -d $1 ]; then
+    # check if directory exist
+    if [ -e "$DIR" ]; then
+      # use readlink because realpath is not on all linuxes
+      DIR="`readlink -f "$1"`/"
+      # call function
+      open_last_file_in_dir
+      # exit in function
+    fi
+  fi
+  # check if it is file
+  if [ -f "$1" ]; then
+      # check if file exist
+      if [ -e "$1" ]; then
+        DIR=`readlink -f "$1"`
+        open_file_for_editing_in_dir
+      else
+        echo "File does not exist"
+        exit 1
+      fi
+    else
+      echo "File does not exist"
+      exit 1
+  fi
+  echo "Wrong input"
+  exit 1
+# if there are 2 arguments
+elif [ $# -eq 2 ]; then
+  # check if argument 1 is "-a"
+  if [ "$1" = "-a" ]; then
+    # look for files after date in curr directory
+    LOOKDATE="$2"
+    # use readpath because realpath is not on all linuxes
+    DIR="`readlink -f "$DIR"`/"
+    # call function
+    list_file_after_date_in_dir
+  fi
+  if [ "$1" = "-b" ]; then
+    # look for files before date in curr directory
+    LOOKDATE="$2"
+    # use readpath because realpath is not on all linuxes
+    DIR="`readlink -f "$DIR"`/"
+    # call function
+    list_file_before_date_in_dir
+  fi
+  # check if it is a directory
+  if [ -d "$2" ]; then
+    # check if directory exists
+    if [ -e "$2" ]; then
+      # use readpath because realpath is not on all linuxes
+      DIR="`readlink -f "$2"`/"
+      # check if first argument is -m
+      if [ "$1" = "-m" ]; then
+        #argument is "-m" open file that was edited most times
+        open_most_edited_file_in_dir
+      fi
+      # check if first argument is -l
+      if [ "$1" = "-l" ]; then
+        # list all the edited files in the directory
+        list_edited_files_in_dir
+      fi
+    fi
+  else
+    echo "Argument $2 is not a directory"
+    exit 1
+  fi
+  echo "Wrong arguments"
+  exit 1
+# check if there are 3 arguments
+elif [ $# -eq 3 ]; then
+  # check if third argument is directory
+  if [ -d "$3" ]; then
+    # check if directory exist
+    if [ -e "$3" ]; then
+      # check if first argument is "-a"
+      # use readlink because realpath is not on all linuxes
+      DIR="`readlink -f "$3"`/"
+      # check if first argument is "-a"
+      if [ "$1" = "-a" ]; then
+        # save date we are comparing with
+        LOOKDATE="$2"
+        # call function
+        list_file_after_date_in_dir
+      fi
+      # check if first argument is "-b"
+      if [ "$1" = "-b" ]; then
+        # save date we are comparing with
+        LOOKDATE="$2"
+        # call function
+        list_file_before_date_in_dir
+      fi
+    fi
+    echo "Directory $3 does not exist"
+    exit 1
+  fi
+  echo "$3 is not a directory"
+else
+  echo "Too much arguments"
+  exit 1
+fi

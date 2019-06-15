@@ -1,0 +1,5 @@
+a = 5
+while a > 1 then
+print a
+a = a -1
+end

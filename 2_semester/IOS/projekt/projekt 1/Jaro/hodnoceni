@@ -1,0 +1,271 @@
+1:celkem bodu za projekt
+#-- automaticke hodnoceni -----------------------------
+0:conf1_nowedirc: reakce na nenastavene WEDI_RC (chybi zprava na stderr)
+0:conf2_visual: EDITOR nezadan, VISUAL zadan
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1 +1,2 @@
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+0:conf3_novisual: pri nenastavenem EDITOR i VISUAL
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,2 +1,3 @@
+#    Zde editor vi. Presmerovavam...
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+0:desc1_file: prvni editace souboru
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1 +1,2 @@
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+0:desc2a_lastfile: editace naposledy editovaneho souboru
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi . <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,3 +1,5 @@
+#    spusten editor s: /.sanitized./ahoj.c (hash 8c686a5)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   -spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+#   +Log neobsahuje ziadny subory v /.sanitized..
+0:desc2a_lastfile_CET: naposledy editovany soubor (pri posunu na zimni cas 2018-10-28)
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi . <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,3 +1,5 @@
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./ahoj.c (hash 8c686a5)
+#   -spusten editor s: /.sanitized./ahoj.c (hash 8c686a5)
+#   +Ziadne subory vo wedirc
+#   +Log neobsahuje ziadny subory v /.sanitized..
+0:desc2b_optm: editace nejcasteji editovaneho souboru (-m)
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi -m . <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,4 +1,7 @@
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./ahoj.c (hash 8c686a5)
+#   -spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+#   +Log neobsahuje ziadny subory v /.sanitized..
+0:desc2c_emptydir: editace v prazdnem adresari (chybi zprava na stderr)
+0:desc2d_nodir: editace naposledy editovaneho v aktualnim adresari
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,3 +1,5 @@
+#    spusten editor s: /.sanitized./ahoj.c (hash 8c686a5)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   -spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+#   +Nic na otvorenie.
+0:desc2e_wedircnowr: reakce na v dobe spusteni nezapisovatelne WEDI_RC (neni stderr a chybovy kod)
+0:desc3_list: seznam editovanych souboru v danem adresari (-l)
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi -l . <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,2 +1,4 @@
+#   -ahoj.c
+#   -hello.c
+#   +Ziadne subory na vypisanie.
+#   +Ziadne subory vo wedirc
+#   +Ziadne subory vo wedirc
+#   +Ziadne subory vo wedirc
+0:desc4_after: seznam editovanych souboru po datu (-a)
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi greeting.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi -a 2018-03-31 . <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,2 +1,5 @@
+#   -greeting.c
+#   -hello.c
+#   +xbalko02.
+#   +Ziadne subory vo wedirc
+#   +Ziadne subory vo wedirc
+#   +Ziadne subory vo wedirc
+#   +Ziadne subory vo wedirc
+0:desc4_before: seznam editovanych souboru pred datem (-b)
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi greeting.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi -b 2018-04-01 . <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,2 +1,5 @@
+#   -ahoj.c
+#   -hello.c
+#   +xbalko02.
+#   +Ziadne subory vo wedirc
+#   +Ziadne subory vo wedirc
+#   +Ziadne subory vo wedirc
+#   +Ziadne subory vo wedirc
+0:note1_deleted: neuvazuje smazany soubor (posledni)
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi greeting.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi greeting.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi . <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,10 +1,19 @@
+#    spusten editor s: /.sanitized./ahoj.c (hash 8c686a5)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./ahoj.c (hash 8c686a5)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./greeting.c (hash 1bcbc11)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+# Vypis byl zkracen, cely text viz note1_deleted/hodnoceni-auto
+0:note1l_deleted: neuvazuje smazany soubor (seznam editovanych)
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi greeting.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi greeting.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi -l . <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,2 +1,10 @@
+#   -ahoj.c
+#   -greeting.c
+#   +Ziadne subory na vypisanie.
+#   +Ziadne subory vo wedirc
+#   +Ziadne subory vo wedirc
+#   +Ziadne subory vo wedirc
+#   +Ziadne subory vo wedirc
+#   +Ziadne subory vo wedirc
+#   +Ziadne subory vo wedirc
+#   +Ziadne subory vo wedirc
+# Vypis byl zkracen, cely text viz note1l_deleted/hodnoceni-auto
+0:note1m_deleted: neuvazuje smazany soubor (nejcastejsi)
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi greeting.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi ahoj.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi greeting.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi -m . <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,10 +1,19 @@
+#    spusten editor s: /.sanitized./ahoj.c (hash 8c686a5)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./ahoj.c (hash 8c686a5)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./greeting.c (hash 1bcbc11)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+# Vypis byl zkracen, cely text viz note1m_deleted/hodnoceni-auto
+0:note2_badsymlinks: realna cesta (vedle cyklickych symlinku)
+# ./wedi dir1/hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi dir2/ <stdin >>stdout 2>>stderr; echo $? >>errcode
+# errcode=0,1; ocekavan errcode=0,0
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,2 +1,3 @@
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   -spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+#   +Log neobsahuje ziadny subory v /.sanitized./dir1.
+0:note2_realpath: rozhodovani relativni na realnou cestu
+# ./wedi dir1/hello.c <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi dir2/ <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,2 +1,3 @@
+#    spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   -spusten editor s: /.sanitized./hello.c (hash da427fd)
+#   +Ziadne subory vo wedirc
+#   +Log neobsahuje ziadny subory v /.sanitized./dir1.
+1:ok: docasne soubory:
+0:note4_filenames: prace s neobvyklymi nazvy souboru
+# ./wedi ':' <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi ' ' <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi # <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi @ <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi '$' <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi '&' <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi '$' <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi '*' <stdin >>stdout 2>>stderr; echo $? >>errcode
+# ./wedi '(' <stdin >>stdout 2>>stderr; echo $? >>errcode
+# diff -u stdout.ref stdout
+#   --- stdout.ref
+#   +++ stdout
+#   @@ -1,9 +1,18 @@
+#    spusten editor s: /.sanitized./: (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./  (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./# (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./@ (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./$ (hash da427fd)
+#   +Ziadne subory vo wedirc
+#    spusten editor s: /.sanitized./& (hash da427fd)
+# Vypis byl zkracen, cely text viz note4_filenames/hodnoceni-auto
+0:return_fromeditor: navratova hodnota z editoru
+# errcode=1; ocekavan errcode=5
+#------------------------------------------------------
+1:celkove score (max pro hodnoceni 15)
+1:celkem bodu za projekt

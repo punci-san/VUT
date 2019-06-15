@@ -1,0 +1,9 @@
+def a()
+print "OK"
+end
+
+def a()
+print "OK!"
+end
+
+a()

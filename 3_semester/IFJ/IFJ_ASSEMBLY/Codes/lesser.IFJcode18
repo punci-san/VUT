@@ -1,0 +1,80 @@
+.IFJcode18
+CREATEFRAME
+PUSHFRAME
+
+# Vytvorime TMP variable
+DEFVAR LF@$tmp00  # Na ulozenie vysledku
+
+# Vytvorime variable
+DEFVAR LF@a
+DEFVAR LF@b
+
+# Inicializujeme ich
+MOVE LF@a string@Hello
+MOVE LF@b string@Hellah
+
+# Vytvorime typy variable
+DEFVAR LF@$type$a
+DEFVAR LF@$type$b
+
+# Typy ?
+TYPE LF@$type$a LF@a
+TYPE LF@$type$b LF@b
+
+# STRING ? STRING
+JUMPIFEQ $label$second$string$check$lesser$0 LF@$type$a string@string
+
+# INT ? INT < FLOAT
+JUMPIFEQ $label$second$intfloat$check$lesser$0 LF@$type$a string@int
+
+# FLOAT ? FLOAT < INT
+JUMPIFEQ $label$second$floatint$check$lesser$0 LF@$type$a string@float
+
+EXIT int@4
+
+LABEL $label$second$string$check$lesser$0
+
+# STRING < STRING ?
+JUMPIFEQ $label$lt$lesser$0 LF@$type$b string@string
+
+EXIT int@4
+
+LABEL $label$second$intfloat$check$lesser$0
+
+# je to INT < INT ?
+JUMPIFEQ $label$lt$lesser$0 LF@$type$b string@int
+
+# je to INT < FLOAT ?
+JUMPIFEQ $label$first$inttofloat$lesser$0 LF@$type$b string@float
+
+# Ukoncime chybou 4
+EXIT int@4
+
+LABEL $label$second$floatint$check$lesser$0
+
+# je to FLOAT < FLOAT ?
+JUMPIFEQ $label$lt$lesser$0 LF@$type$b string@float
+
+# je to FLOAT < int ?
+JUMPIFEQ $label$second$inttofloat$lesser$0 LF@$type$b string@int
+
+# Ukoncime chybou 4
+EXIT int@4
+
+LABEL $label$first$inttofloat$lesser$0
+INT2FLOAT LF@a LF@a
+
+JUMP $label$lt$lesser$0
+
+LABEL $label$second$inttofloat$lesser$0
+INT2FLOAT LF@b LF@b
+
+# Label pre <
+LABEL $label$lt$lesser$0
+
+# <
+LT LF@$tmp00 LF@a LF@b
+
+WRITE LF@$tmp00
+
+POPFRAME

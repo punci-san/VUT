@@ -1,0 +1,14 @@
+a = "kuk"
+b = "\t"
+c = "kuk"
+if a == b then
+	a=a+b+c
+	d="juj\n"
+	if a != d then
+		a=a+d
+	else
+		print a
+	end
+else
+	print a
+end

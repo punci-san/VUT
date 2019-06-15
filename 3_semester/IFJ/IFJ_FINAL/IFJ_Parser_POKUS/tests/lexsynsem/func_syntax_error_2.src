@@ -1,0 +1,4 @@
+def a(a, b)
+c = a + b
+end
+a 1 2

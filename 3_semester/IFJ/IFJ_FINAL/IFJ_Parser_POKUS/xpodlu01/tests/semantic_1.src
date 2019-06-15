@@ -1,0 +1,5 @@
+def fc()
+    n=5 
+    a = n*5
+end
+def fc()

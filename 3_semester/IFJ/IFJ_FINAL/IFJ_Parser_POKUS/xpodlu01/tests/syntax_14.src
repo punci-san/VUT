@@ -1,0 +1,28 @@
+# Wrong function call
+
+
+ a = 0
+ b = 0
+ c = 0
+ d = 0
+ e = 0
+
+  while a < 6 do
+    while b < 6 do
+      while c < 6 do
+        while d < 6 do
+          while e < 6 do
+           e = e + 1
+           end
+         d = d + 1
+         end
+       c = c + 1
+       end
+     b = b + 1
+     end
+   a = a + 1
+     end
+
+  print a, b, c, d, e, a, b, c, d, e , ,
+
+    

@@ -1,0 +1,4 @@
+a = length "0234asd"
+a = substr "0234asd", 4, 3
+a = ord "a", 0
+a = chr 65

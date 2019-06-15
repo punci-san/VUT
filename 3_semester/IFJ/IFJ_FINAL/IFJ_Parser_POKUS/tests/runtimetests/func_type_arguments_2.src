@@ -1,0 +1,7 @@
+def a(b)
+while b>1 do
+print "WTF"
+end
+end
+
+a("ha")

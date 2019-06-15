@@ -1,0 +1,6 @@
+def a(a1, a2)
+a1/a2
+end
+
+vysl = a(6,0)
+

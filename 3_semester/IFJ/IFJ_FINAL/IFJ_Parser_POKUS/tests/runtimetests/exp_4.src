@@ -1,0 +1,6 @@
+_nil = nil
+a = "nil"
+if a == nil then
+ 	print "SPATNE"
+else
+end

@@ -1,0 +1,5 @@
+if a > 2 then
+  print a, " > 2"
+else
+  print a, " <= 2"
+end
